@@ -5,6 +5,7 @@
 #include <string>
 #include <vector>
 #include "gjenstand.h"
+#include "kunder.h"
 
 class Kunde : public Kunder {
     private:

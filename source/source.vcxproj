@@ -157,6 +157,9 @@
     <ClInclude Include="tralle.h" />
     <ClInclude Include="utleiesteder.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="KUNDER.DTA" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
