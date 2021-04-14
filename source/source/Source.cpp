@@ -1,7 +1,6 @@
 
 #include <iostream>
-#include "kunder.h"
-#include "utleiesteder.h"
+
 #include "funksjoner.h"
 #include "LesData3.h"
 using namespace std;

@@ -21,6 +21,9 @@
     <ClCompile Include="LesData3.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="funksjoner.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LesData3.h">
