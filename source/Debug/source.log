@@ -6,4 +6,14 @@ G:\GITLAB\gruppe45\source\kunde.h(10,29): error C2504: 'Kunder': base class unde
   Source.cpp
 G:\GITLAB\gruppe45\source\sted.h(11,34): error C2504: 'Utleiesteder': base class undefined
 G:\GITLAB\gruppe45\source\kunde.h(10,29): error C2504: 'Kunder': base class undefined
+G:\GITLAB\gruppe45\source\Source.cpp(19,15): error C2039: 'lesFraFil': is not a member of 'Utleiesteder'
+G:\GITLAB\gruppe45\source\utleiesteder.h(8): message : see declaration of 'Utleiesteder'
+G:\GITLAB\gruppe45\source\Source.cpp(26,32): error C2039: 'handling': is not a member of 'Kunder'
+G:\GITLAB\gruppe45\source\kunder.h(10): message : see declaration of 'Kunder'
+G:\GITLAB\gruppe45\source\Source.cpp(28,31): error C2039: 'handling': is not a member of 'Utleiesteder'
+G:\GITLAB\gruppe45\source\utleiesteder.h(8): message : see declaration of 'Utleiesteder'
+G:\GITLAB\gruppe45\source\Source.cpp(34,16): error C2039: 'skrivTilFil': is not a member of 'Kunder'
+G:\GITLAB\gruppe45\source\kunder.h(10): message : see declaration of 'Kunder'
+G:\GITLAB\gruppe45\source\Source.cpp(35,15): error C2039: 'skrivTilFil': is not a member of 'Utleiesteder'
+G:\GITLAB\gruppe45\source\utleiesteder.h(8): message : see declaration of 'Utleiesteder'
   Generating Code...

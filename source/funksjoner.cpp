@@ -1,4 +1,4 @@
-
+#include <iostream>
 #include <string>
 #include "funksjoner.h"
 
@@ -7,7 +7,7 @@ Kunder gKundebase;
 Utleiesteder gStedbase;
 
 void skrivMeny() {
-     cout << "\nFølgende kommandoer er tilgjengelig:\n"
+     std::cout << "\nFølgende kommandoer er tilgjengelig:\n"
          << "\t K  N\n"
          << "\t K  A\n"
          << "\t K  1 <knr>\n"
