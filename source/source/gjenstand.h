@@ -2,5 +2,5 @@
 
 struct Gjenstand {
 	//legg enum her :)
-	int gjenstandNr;
+	int gjenstandNr; // et unikt gjenstandsnummer
 };

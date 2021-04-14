@@ -12,8 +12,9 @@
  *       - Hente ut / levere inn en/flere gjenstander
  *       - Overføre/flytte gjenstander mellom steder
  *       - Finne igjen en gitt gjenstand (på et sted eller hos en kunde)
- *       - 
- *       - lese datastruktur fra fil
+ *       - Skrive steder som har igjen av en gitt gjenstand
+ *       - Skrive inntjeningen på hver sted
+ *       - Hele datastrukturen leses fra/skrives til filer
  *
  * 0=======================================================================0
  *

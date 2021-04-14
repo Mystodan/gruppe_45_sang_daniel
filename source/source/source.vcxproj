@@ -149,6 +149,7 @@
     <ClInclude Include="kunde.h" />
     <ClInclude Include="kunder.h" />
     <ClInclude Include="LesData3.h" />
+    <ClInclude Include="sted.h" />
     <ClInclude Include="sykkel.h" />
     <ClInclude Include="tralle.h" />
     <ClInclude Include="utleiesteder.h" />
