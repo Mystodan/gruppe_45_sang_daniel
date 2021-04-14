@@ -1,9 +1,38 @@
+/**
+ *   PROSJEKT ARBEID - PROG1003 - OOP.
+ *
+ *      {ENDRE DET UNDER SENERE}
+ *   Programmet inneholder en oversikt over utleie av ulike gjenstander -
+ *   Tralle, Sykkel, og Elsparkesykkel for en fornøyelsespark.
+ *   Parken har flere kontorer/steder der man kan leie/hente ut og levere.
+ *   slike gjenstander.
+ * 
+ *   Brukeren/programmet skal kunne:
+ *       - Legge inn / skrive / slette kunde / sted / gjenstand
+ *       - Hente ut / levere inn en/flere gjenstander
+ *       - Overføre/flytte gjenstander mellom steder
+ *       - Finne igjen en gitt gjenstand (på et sted eller hos en kunde)
+ *       - 
+ *       - lese datastruktur fra fil
+ *
+ * 0=======================================================================0
+ *
+ *  @file        Source.cpp
+ *  @date        14.04.2021
+ *  @version     1.1.1
+ *   @author   Anna Pham, Sang Ngoc Nguyen, Daniel Hao Huynh
+ *
+ * 0=======================================================================0
+ */
+
 
 #include <iostream>
 #include "kunder.h"
 #include "utleiesteder.h"
 #include "funksjoner.h"
 #include "LesData3.h"
+
+
 using namespace std;
 
 

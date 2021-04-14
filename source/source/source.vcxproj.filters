@@ -41,5 +41,14 @@
     <ClInclude Include="kunde.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="tralle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sykkel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="elsparkesykkel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
