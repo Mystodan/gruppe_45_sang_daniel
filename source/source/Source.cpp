@@ -26,8 +26,8 @@ int main() {
     while (valg != 'Q') {
         switch (valg) {
         case 'K':  gKundebase.handling();      break;
-        case 'S':  case 'G':
-            gStedbase.handling(valg);   break;
+        case 'S':  
+        case 'G':  gStedbase.handling(valg);   break;
         default:   skrivMeny();                break;
         }
         valg = lesChar("\nKommando");

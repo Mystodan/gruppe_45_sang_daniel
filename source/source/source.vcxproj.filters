@@ -35,5 +35,11 @@
     <ClInclude Include="kunder.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="gjenstand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="kunde.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

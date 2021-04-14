@@ -144,6 +144,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="funksjoner.h" />
+    <ClInclude Include="gjenstand.h" />
+    <ClInclude Include="kunde.h" />
     <ClInclude Include="kunder.h" />
     <ClInclude Include="LesData3.h" />
     <ClInclude Include="utleiesteder.h" />
