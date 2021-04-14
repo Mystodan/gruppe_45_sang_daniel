@@ -12,6 +12,7 @@ class Kunder {
         std::list <Kunde*> kundeListe;	    // sortert liste med de unikt nummererte kundene
 
     public:
+        virtual void lesFraFil();
 };
 
 #endif
