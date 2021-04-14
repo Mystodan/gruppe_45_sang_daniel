@@ -26,5 +26,14 @@
     <ClInclude Include="LesData3.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="funksjoner.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="utleiesteder.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="kunder.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
