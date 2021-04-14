@@ -25,6 +25,4 @@ void skrivMeny() {
          << "\t G  F <gjenstandernr>\n"
          << "\t S  S <gjenstandernr>\n"
          << "\tQ - Quit / avslutt\n\n";
-}
-
 };
