@@ -4,12 +4,10 @@
 
 #include <string>
 #include <vector>
-#include "utleiesteder.h"
-//#include "TRALLE.H"
-
 
 //  IKKE BRUK "using namespace std;" I H-FILER !!!!!
 //  Skriv istedet "std::" der det trengs!
+
 
 class Sted {
     public:

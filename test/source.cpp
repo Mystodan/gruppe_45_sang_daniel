@@ -47,34 +47,34 @@ int main() {
     gKunder = new Kundebase;
     gUtleiesteder = new Utleiesteder;
 
-    kommando = lesChar("\n\n\nKommando [ K(unde), S(ted), G(jenstand), Q(quit ]");
+    kommando = lesChar("\n\n\nKommando [ K(unde), S(ted), G(jenstand), Q(quit) ]");
 
     while (kommando != 'Q') {
         switch (kommando) {
-          case 'K':  {
-            kommando = lesChar("\n\nKommando [ N(y), A(lle), 1(en) ]");
-            switch (kommando) {
-                case 'N':  {nyKunde();}                 break;
-                case 'A':  {gKunder->display();}        break;
-                case '1':  {gKunder->displayOne();}     break;
-            }
-          }
+            case 'K':  {
+                kommando = lesChar("\n\nKommando [ N(y), A(lle), 1(en) ]");
+                switch (kommando) {
+                    case 'N':  {nyKunde();}                         break;
+                    case 'A':  {gKunder->display();}                break;
+                    case '1':  {gKunder->displayOne();}             break;
+                }
+            }   break;
 
-          case 'S':  {
-            kommando = lesChar("\n\nKommando [ N(y), A(lle), 1(en), T(jente) ]");
-            switch (kommando) {
-                case 'N':  {nyttUtleiested();}                             break;
-                case 'A':  {gUtleiesteder->display();}          break;
-                case '1':  {gUtleiesteder->displayOne();}       break;
-                case 'T':  {gUtleiesteder->displayTjente();}    break;
-            }
-          }
+            case 'S':  {
+                kommando = lesChar("\n\nKommando [ N(y), A(lle), 1(en), T(jente) ]");
+                switch (kommando) {
+                    case 'N':  {nyttUtleiested();}                  break;
+                    case 'A':  {gUtleiesteder->display();}          break;
+                    case '1':  {gUtleiesteder->displayOne();}       break;
+                    case 'T':  {gUtleiesteder->displayTjente();}    break;
+                }
+            }   break;
         }
-        kommando = lesChar("\n\n\nKommando [ K(unde), S(ted), G(jenstand), Q(quit ]");
+        kommando = lesChar("\n\n\nKommando [ K(unde), S(ted), G(jenstand), Q(quit) ]");
     }
 
-
     delete gKunder;
+    delete gUtleiesteder;
 
     cout << "\n\n";
 

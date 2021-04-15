@@ -4,13 +4,13 @@
 
 #include <string>
 #include <map>
-#include "sted.h"              //  'Sted'
+#include "sted.h"       //  'Sted'
 
 //  IKKE BRUK "using namespace std;" I H-FILER !!!!!
 //  Skriv istedet "std::" der det trengs!
 
 
-class Utleiesteder {
+class Utleiesteder  {
     public:
         std::map <std::string,Sted*> steder;     //  list med pekere til 'sted'er.
         int sisteNr = 0;
@@ -23,3 +23,4 @@ class Utleiesteder {
 };
 
 #endif
+

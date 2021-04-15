@@ -5,10 +5,10 @@
 
 #include <iostream>
 #include <string>
-#include "STED.h"                   //  'Kunde'
-#include "utleiesteder.h"           //  'Utleiesteder'
-#include "LesData3.h"               //  Verktøykasse for lesing av diverse data
-                                    //  NB:  LesData3.h - nr.3 !!!
+#include "sted.h"               //  'Sted'
+#include "utleiesteder.h"       //  'Utleiesteder'
+#include "LesData3.h"           //  Verktøykasse for lesing av diverse data
+                                //  NB:  LesData3.h - nr.3 !!!
 using namespace std;
 
 
@@ -23,14 +23,14 @@ Utleiesteder ::  ~Utleiesteder()  {       //  Sletter alt i vectoren:
 
 
 void Utleiesteder :: nyttUtleiested(const string & nvn)  {
-     Sted* nyttUtleiested = new Sted;
-     nyttUtleiested->nummer = ++sisteNr;
-     nyttUtleiested->navn  = nvn;
-     nyttUtleiested->tlf = lesInt("Telefon nummer", 10000000, 99999999);
-     cout << "Skriv inn beskrivelse:\t";
-     getline(cin, nyttUtleiested->beskrivelse);
-     nyttUtleiested->tjenteKr = lesInt("Tjente kroner", 0, 10000);
-     steder.insert(pair <string, Sted*> (nvn, nyttUtleiested));
+    Sted* nyttUtleiested = new Sted;
+    nyttUtleiested->nummer = ++sisteNr;
+    nyttUtleiested->navn  = nvn;
+    nyttUtleiested->tlf = lesInt("Telefon nummer", 10000000, 99999999);
+    cout << "Skriv inn beskrivelse:\t";
+    getline(cin, nyttUtleiested->beskrivelse);
+    nyttUtleiested->tjenteKr = lesInt("Tjente kroner", 0, 10000);
+    steder.insert(pair <string, Sted*> (nvn, nyttUtleiested));
 }
 
 
@@ -54,3 +54,5 @@ void Utleiesteder :: displayTjente() const {
     for (const auto & val : steder)
         cout << "\tNavn:  " << val.second->navn << ",  tjente kr: " << val.second->tjenteKr << '\n';
 }
+
+

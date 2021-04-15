@@ -12,10 +12,11 @@
 #include "LesData3.h"               //  Verktøykasse for lesing av diverse data
                                     //  NB:  LesData3.h - nr.3 !!!
 using namespace std;
-
+/*
 Gjenstand :: Gjenstand()  {         //  Initierer evt. 'Gjenstand'
 
 }
+
 void Gjenstand :: nyGjenstand() const {
     char type;
     type = lesChar("Hvilken type gjenstand er dette? (T, S, E)");
@@ -28,4 +29,4 @@ void Gjenstand :: nyGjenstand() const {
         }
     }
 }
-
+*/

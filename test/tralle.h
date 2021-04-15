@@ -7,7 +7,7 @@
 //  IKKE BRUK "using namespace std;" I H-FILER !!!!!
 //  Skriv istedet "std::" der det trengs!
 
-class Tralle : public Gjenstand {
+class Tralle {
     public:
         bool harStropp = 0;
         Tralle() {harStropp = false;};
