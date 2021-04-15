@@ -49,7 +49,7 @@ void nyGjenstand()  {
                 if (Type == 'S') {
 
                     Sykkel* sykkel = new Sykkel;
-                    sykkel->harTilhenger = lesInt("Har den en stropp? 0 - nei, 1 - ja", 0, 1);
+                    sykkel->harTilhenger = lesInt("Har den en tilhenger? 0 - nei, 1 - ja", 0, 1);
                     val.second->sykler.push_back(sykkel);      
                 }
                 else if (Type == 'E') {
