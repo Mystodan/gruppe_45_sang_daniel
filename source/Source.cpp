@@ -2,6 +2,9 @@
 #include <iostream>
 #include "funksjoner.h"
 #include "LesData3.h"
+#include "kunder.h"
+#include "utleiesteder.h"
+
 using namespace std;
 
 
@@ -23,9 +26,9 @@ int main() {
 
     while (valg != 'Q') {
         switch (valg) {
-        case 'K':   gKundebase.handling();      break;
-        case 'S':  
-        case 'G':   gStedbase.handling(valg);   break;
+        case 'K':        break;
+        case 'S':    break;
+        case 'G':      break;
         default:   skrivMeny();                break;
         }
         valg = lesChar("\nKommando");
