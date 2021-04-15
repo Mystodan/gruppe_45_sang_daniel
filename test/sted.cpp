@@ -15,11 +15,9 @@ using namespace std;
 
 
 Sted :: Sted()  {         //  Initierer evt. 'Sted'
-
 }
 
 void Sted :: nyttSted()  {
-
 }
 
 

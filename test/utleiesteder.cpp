@@ -40,6 +40,12 @@ void Utleiesteder :: display() const {
         cout << "\tNavn:  " << val.second->navn << ",  tlf: " << val.second->tlf << ",  tjente kr: " << val.second->tjenteKr << ",  beskrivelse: " << val.second->beskrivelse << '\n';
 }
 
+void Utleiesteder::displayN() const {
+    cout << "\n\nUTLEIESTEDETS INNHOLD:\n";
+    for (const auto& val : steder)
+        cout << "\tNavn:  " << val.second->navn  << '\n';
+}
+
 void Utleiesteder :: displayOne() const {
     string navn;
     cout << "Skriv inn navn:\t";

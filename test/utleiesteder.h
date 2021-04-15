@@ -19,6 +19,7 @@ class Utleiesteder  {
         void nyttUtleiested(const std::string & nvn);
         void displayOne() const;
         void display() const;
+        void displayN() const;
         void displayTjente() const;
 };
 

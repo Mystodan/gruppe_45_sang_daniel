@@ -13,7 +13,7 @@ class Gjenstand  {
  private:
      int gjenstandsNr = 0;
  public:
-    Gjenstand() {gjenstandsNr++;};
+     Gjenstand(int nr) { this->gjenstandsNr = nr; };
     ~Gjenstand();
     virtual void nyGjenstand() const;
     virtual void display() const;

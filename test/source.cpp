@@ -69,6 +69,15 @@ int main() {
                     case 'T':  {gUtleiesteder->displayTjente();}    break;
                 }
             }   break;
+            case 'G': {
+                kommando = lesChar("\n\nKommando [ N(y), A(lle), 1(en), T(jente) ]");
+                switch (kommando) {
+                case 'N': {nyGjenstand(); }                  break;
+                case 'A': {gUtleiesteder->display(); }          break;
+                case '1': {gUtleiesteder->displayOne(); }       break;
+                case 'T': {gUtleiesteder->displayTjente(); }    break;
+                }
+            }   break;
         }
         kommando = lesChar("\n\n\nKommando [ K(unde), S(ted), G(jenstand), Q(quit) ]");
     }

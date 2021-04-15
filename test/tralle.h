@@ -10,7 +10,9 @@
 class Tralle {
     public:
         bool harStropp = 0;
-        Tralle() {harStropp = false;};
+        Tralle() {harStropp = false;}
+
+
 };
 
 #endif
