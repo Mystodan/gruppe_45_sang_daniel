@@ -6,6 +6,7 @@
 
 class Sykkel : public Gjenstand {
     public:
+        std::string Type = "Sykkel";
         bool harTilhenger;      // har med tilhenger bak eller ei (til bagasje/sitteplass for mindre barn)
         Sykkel(int nr, char s) : Gjenstand(nr, s) {};
         Sykkel() { harTilhenger = false; };

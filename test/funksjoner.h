@@ -6,5 +6,6 @@
 void nyKunde();
 void nyttUtleiested();
 void nyGjenstand();
+void visGjenstand();
 void gjenstandSlett();
 #endif

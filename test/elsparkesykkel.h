@@ -6,6 +6,7 @@
 
 class Elsparkesykkel : public Gjenstand {
     public:
+        std::string Type = "Elsparkesykkel";
         int watt;       // antall watt
   
         Elsparkesykkel() {watt = 100;}

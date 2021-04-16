@@ -75,9 +75,49 @@ void nyGjenstand()  {
 }
 
 
+void visGjenstand() {
+    if (gUtleiesteder->steder.size() > 0) {         //sjekker om det er blitt lagt til steder
+
+        for (const auto& val : gUtleiesteder->steder) {
+            if ((val.second->elsparkesykler.size() + val.second->sykler.size() + val.second->traller.size()) > 0) {
+
+                if (val.second->sykler.size() > 0) {
+                    for (const auto &val2 : val.second->sykler ) {
+                        cout <<"\tNr: "<< val2->gjenstandNr<< " - "<< val2->Type<<endl;
+                    }
+                }; 
+                if (val.second->elsparkesykler.size() > 0) {
+                    for (const auto &val2 : val.second->elsparkesykler) {
+                        cout <<"\tNr: "<< val2->gjenstandNr<< " - "<< val2->Type<<endl;
+                    }
+                };
+                if (val.second->traller.size() > 0) {
+                    for (const auto &val2 : val.second->traller ) {
+                        cout <<"\tNr: "<< val2->gjenstandNr<< " - "<< val2->Type<<endl;
+                    }
+                };
+            }
+            else
+            {
+                cout << "INGEN GJENSTAND A VISE\n";
+            }
+        }
+    }
+    else {
+        cout << "INGEN STEDER A HENTE GJENSTANDER FRA\n";
+    }
+};
+
+
+
+
 void gjenstandSlett() {
     int id;
-    if (gUtleiesteder->steder.size() > 0) {
+    if (gUtleiesteder->steder.size() > 0) {         //sjekker om det er blitt lagt til steder
+
+        visGjenstand();
+
+
         for (const auto& val : gUtleiesteder->steder) {
             if ((val.second->elsparkesykler.size() + val.second->sykler.size() + val.second->traller.size()) > 0) {
                 id = lesInt("Hvilke gjenstand(id) vil du slette?", 1,1000);

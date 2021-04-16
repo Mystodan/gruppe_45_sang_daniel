@@ -9,6 +9,7 @@
 
 class Tralle : public Gjenstand {
     public:
+        std::string Type = "Tralle";
         bool harStropp;
         Tralle(int nr, char type) : Gjenstand(nr, type) {};
         Tralle() {harStropp = false;}
