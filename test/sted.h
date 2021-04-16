@@ -23,7 +23,9 @@ class Sted {
 
         Sted();
         ~Sted();
+     
         virtual void nyttSted();
+        virtual void returnerAntall();
 };
 
 #endif

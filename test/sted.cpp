@@ -20,4 +20,8 @@ Sted :: Sted()  {         //  Initierer evt. 'Sted'
 void Sted :: nyttSted()  {
 }
 
-
+void Sted :: returnerAntall()  {
+    cout << "\tLedige traller:  " << traller.size() << "\n";
+    cout << "\tLedige sykler:  " << sykler.size() << "\n";
+    cout << "\tLedige elsparkesykler:  " << elsparkesykler.size() << "\n";
+}

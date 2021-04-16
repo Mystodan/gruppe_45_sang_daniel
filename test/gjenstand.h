@@ -11,14 +11,11 @@
 
 class Gjenstand  {
  private:
-     int gjenstandsNr = 0;
+     int gjenstandsNr;
  public:
+     Gjenstand() { this->gjenstandsNr = 0; };
      Gjenstand(int nr) { this->gjenstandsNr = nr; };
     ~Gjenstand();
-    virtual void nyGjenstand() const;
-    virtual void display() const;
-    virtual void gjenstandFinn() const;
-    virtual void gjenstandSlett() const;
 };
 
 #endif

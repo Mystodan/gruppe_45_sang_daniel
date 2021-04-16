@@ -4,11 +4,14 @@
 
 #include "gjenstand.h"
 
-class Elsparkesykkel  {
+class Elsparkesykkel : public Gjenstand {
     public:
-        int watt;   // antall watt
-
-
+        int watt;       // antall watt
+        int gjenstandNr;
+        Elsparkesykkel() {watt = 100;}
+        Elsparkesykkel(int nr) : Gjenstand(nr) {
+            gjenstandNr = nr;
+        };
 };
 
 #endif

@@ -6,5 +6,5 @@
 void nyKunde();
 void nyttUtleiested();
 void nyGjenstand();
-
+void gjenstandSlett();
 #endif

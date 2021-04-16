@@ -38,6 +38,11 @@ void Utleiesteder :: display() const {
     cout << "\n\nUTLEIESTEDETS INNHOLD:\n";
     for (const auto & val : steder)
         cout << "\tNavn:  " << val.second->navn << ",  tlf: " << val.second->tlf << ",  tjente kr: " << val.second->tjenteKr << ",  beskrivelse: " << val.second->beskrivelse << '\n';
+
+    for (const auto & val : steder) {
+        cout << "Navn:  " << val.second->navn << "\n";
+        val.second->returnerAntall();
+    }
 }
 
 void Utleiesteder::displayN() const {

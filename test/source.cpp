@@ -37,7 +37,7 @@ using namespace std;
 
 Kundebase*  gKunder;                ///<  Datastrukturen med ALLE kundene.
 Utleiesteder* gUtleiesteder;        ///<  Datastrukturen med ALLE utleiesteder.
-
+int antallGjenstander = 0;
 /**
  *  Hovedprogrammet:
  */
@@ -70,12 +70,11 @@ int main() {
                 }
             }   break;
             case 'G': {
-                kommando = lesChar("\n\nKommando [ N(y), A(lle), 1(en), T(jente) ]");
+                kommando = lesChar("\n\nKommando [ N(y), S(lett), F(inn) ]");
                 switch (kommando) {
-                case 'N': {nyGjenstand(); }                  break;
-                case 'A': {gUtleiesteder->display(); }          break;
-                case '1': {gUtleiesteder->displayOne(); }       break;
-                case 'T': {gUtleiesteder->displayTjente(); }    break;
+                case 'N': {nyGjenstand(); }              break;
+                case 'S': {gjenstandSlett(); }           break;
+                case 'F': {/*Finn*/; }                   break;
                 }
             }   break;
         }
