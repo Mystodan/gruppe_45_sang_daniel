@@ -6,12 +6,12 @@
 #include <iostream>
 #include <string>
 #include "LesData3.h"           //  Verktøykasse for lesing av diverse data
-#include "tralle.h"
+#include "sykkel.h"
 
 using namespace std;
 
 
-void Tralle::lesData() {
-	harStropp = lesInt("Har den en stropp? 0 - nei, 1 - ja", 0, 1);
+void Sykkel::lesData() {
+	harTilhenger = lesInt("Har den en tilhenger? 0 - nei, 1 - ja", 0, 1);
 };
-void Tralle::skrivData() {};
+void Sykkel::skrivData() {};

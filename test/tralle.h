@@ -10,13 +10,11 @@
 class Tralle : public Gjenstand {
     public:
         bool harStropp;
-        int gjenstandNr;
-        Tralle(int nr) : Gjenstand(nr) {
-            gjenstandNr = nr;
-        };
+        Tralle(int nr, char type) : Gjenstand(nr, type) {};
         Tralle() {harStropp = false;}
        
-
+        virtual void lesData();
+        virtual void skrivData();
 };
 
 #endif

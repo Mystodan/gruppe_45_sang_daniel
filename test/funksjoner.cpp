@@ -47,33 +47,25 @@ void nyGjenstand()  {
             if ((stdnvn == val.second->navn)) {
 
                 Type = lesChar("\nHvilke Gjenstand? S - Sykkel, E - Elsparkesykkel, T - Tralle \t");
-                if (Type == 'S') {
-                    antallGjenstander++;
-                    Sykkel* sykkel = new Sykkel(antallGjenstander);
-                    sykkel->harTilhenger = lesInt("Har den en stropp? 0 - nei, 1 - ja", 0, 1);
+
+                switch (Type) {
+                case 'S': {
+                    Sykkel* sykkel = new Sykkel(++antallGjenstander, Type);
+                    sykkel->lesData();
                     val.second->sykler.push_back(sykkel);
-                }
-                else if (Type == 'E') {
-                    antallGjenstander++;
-                    Elsparkesykkel* elsparkesykkel = new Elsparkesykkel(antallGjenstander);
-                    int Val;
-                    Val = lesInt("hvor mye watt har den?", 100, 200);
-                    while (!(Val == 100||Val == 200))
-                    {
-                        Val = lesInt("hvor mye watt har den?", 100, 200);
-                        if (Val == 100 || Val == 200)
-                            elsparkesykkel->watt = Val;
-                        }
+                }; break;
+                case 'E': {
+                    Elsparkesykkel* elsparkesykkel = new Elsparkesykkel(++antallGjenstander, Type);
+                    elsparkesykkel->lesData();
                     val.second->elsparkesykler.push_back(elsparkesykkel);
-
-
-                }
-                else if (Type == 'T') {
-                    antallGjenstander++;
-                    Tralle* tralle = new Tralle(antallGjenstander);
-                    tralle->harStropp = lesInt("Har den en stropp? 0 - nei, 1 - ja", 0, 1);
+                }; break;
+                case 'T': {
+                    Tralle* tralle = new Tralle(++antallGjenstander, Type);
+                    tralle->lesData();
                     val.second->traller.push_back(tralle);
+                }; break;
                 }
+
             }
         }
     }
@@ -84,41 +76,51 @@ void nyGjenstand()  {
 
 
 void gjenstandSlett() {
-
+    int id;
     if (gUtleiesteder->steder.size() > 0) {
         for (const auto& val : gUtleiesteder->steder) {
-            /*
-            if (val.second->traller.size() > 0 || val.second->elsparkesykler.size() > 0 || val.second->sykler.size() > 0) {
-                for (const auto& val2 : val.second->) {
+            if ((val.second->elsparkesykler.size() + val.second->sykler.size() + val.second->traller.size()) > 0) {
+                id = lesInt("Hvilke gjenstand(id) vil du slette?", 1,1000);
+                if (val.second->traller.size() > 0) {
+                    for (const auto& val2 : val.second->traller) {
+                        if (id == val2->gjenstandNr) {
+                            cout << "nr: " <<val2->gjenstandNr <<" har blitt slettet\n";
+                            delete val2;
+                            val.second->traller.pop_back();
+                        };
+                    }
+                };
 
-                }
-            
+                if (val.second->sykler.size() > 0) {
+                    for (const auto& val2 : val.second->sykler) {
+                        if (id == val2->gjenstandNr) {
+                            cout <<"nr: "<< val2->gjenstandNr << " har blitt slettet\n";
+                            delete val2;
+                            val.second->sykler.pop_back();
+                        
+                        };
+                    }
+                };
+
+                if (val.second->elsparkesykler.size() > 0) {
+                    for (const auto& val2 : val.second->elsparkesykler) {
+                        if (id == val2->gjenstandNr) {
+                            cout << "nr: " << val2->gjenstandNr << " har blitt slettet\n";
+                            delete val2;
+                            val.second->elsparkesykler.pop_back();
+                        
+                        };
+                    }
+                };
             }
-            */
-
-
-            if (val.second->traller.size() > 0) {
-                for (const auto& val2 : val.second->traller) {
-                    cout << val2->gjenstandNr << endl;
-                }
-
+            else
+            {
+                cout << "SETT INN GJENSTAND FORST\n";
             }
-            if (val.second->elsparkesykler.size() > 0) {
-                for (const auto& val2 : val.second->elsparkesykler) {
-                    cout << val2->gjenstandNr << endl;
-                }
-
-            }
-
-
-            if (val.second->sykler.size() > 0) {
-                for (const auto& val2 : val.second->sykler) {
-                    cout << val2->gjenstandNr << endl;
-                }
-
-            }
-
         }
+    }
+    else {
+        cout << "SETT INN STED FORST\n";
     }
 }
 

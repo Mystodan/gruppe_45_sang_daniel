@@ -7,11 +7,12 @@
 class Elsparkesykkel : public Gjenstand {
     public:
         int watt;       // antall watt
-        int gjenstandNr;
+  
         Elsparkesykkel() {watt = 100;}
-        Elsparkesykkel(int nr) : Gjenstand(nr) {
-            gjenstandNr = nr;
-        };
+        Elsparkesykkel(int nr, char type) : Gjenstand(nr, type) {};
+
+        virtual void lesData();
+        virtual void skrivData();
 };
 
 #endif

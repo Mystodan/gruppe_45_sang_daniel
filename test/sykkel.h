@@ -7,12 +7,11 @@
 class Sykkel : public Gjenstand {
     public:
         bool harTilhenger;      // har med tilhenger bak eller ei (til bagasje/sitteplass for mindre barn)
-        int gjenstandNr;
-        Sykkel(int nr) : Gjenstand(nr) {
-            gjenstandNr = nr;
-        };
+        Sykkel(int nr, char s) : Gjenstand(nr, s) {};
         Sykkel() { harTilhenger = false; };
 
+        virtual void lesData();
+        virtual void skrivData();
 };
 
 #endif
