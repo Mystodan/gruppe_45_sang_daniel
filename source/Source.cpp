@@ -1,10 +1,13 @@
 /**
- *   Prosjekt
+ *   Prosjekt:
  *
- *   Programmet:
+ *   Et program som skal holde orden på utleien av ulike gjenstander
+ *   (Tralle, sykkel eller elsparkesykkel) i en stor fornøyelsespark.
+ *   Parken har flere steder/kontorer der man kan leie/hente ut og levere inn
+ *   slike gjenstander.
  *
  *   @file     source.cpp
- *   @author   Daniel og Sang
+ *   @author   Daniel Hao Huynh, Sang Ngoc Nguyen og Anna Pham
  */
 
 
@@ -16,7 +19,7 @@
 // ***************************************************************************
 
 
-#include <iostream>
+#include <iostream>                 //  cout, cin
 #include "kunder.h"                 //  'Kundebase'
 #include "utleiesteder.h"           //  'Utleiesteder'
 #include "funksjoner.h"             //  Funksjonen 'Ny'
