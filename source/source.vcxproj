@@ -139,14 +139,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="funksjoner.cpp" />
-    <ClCompile Include="kunder.cpp" />
-    <ClCompile Include="LesData3.cpp" />
-    <ClCompile Include="Source.cpp" />
-    <ClCompile Include="utleiesteder.cpp" />
+    <None Include="KUNDER.DTA" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="const.h" />
     <ClInclude Include="elsparkesykkel.h" />
+    <ClInclude Include="enum.h" />
     <ClInclude Include="funksjoner.h" />
     <ClInclude Include="gjenstand.h" />
     <ClInclude Include="kunde.h" />
@@ -158,7 +156,17 @@
     <ClInclude Include="utleiesteder.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="KUNDER.DTA" />
+    <ClCompile Include="elsparkesykkel.cpp" />
+    <ClCompile Include="funksjoner.cpp" />
+    <ClCompile Include="gjenstand.cpp" />
+    <ClCompile Include="kunde.cpp" />
+    <ClCompile Include="kunder.cpp" />
+    <ClCompile Include="LesData3.cpp" />
+    <ClCompile Include="Source.cpp" />
+    <ClCompile Include="sted.cpp" />
+    <ClCompile Include="sykkel.cpp" />
+    <ClCompile Include="tralle.cpp" />
+    <ClCompile Include="utleiesteder.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

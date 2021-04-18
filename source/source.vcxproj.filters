@@ -15,33 +15,21 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="LesData3.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="funksjoner.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="kunder.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="utleiesteder.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
+    <None Include="KUNDER.DTA">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="LesData3.h">
+    <ClInclude Include="const.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="elsparkesykkel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="enum.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="funksjoner.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="utleiesteder.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="kunder.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="gjenstand.h">
@@ -50,22 +38,58 @@
     <ClInclude Include="kunde.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="tralle.h">
+    <ClInclude Include="kunder.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="sykkel.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="elsparkesykkel.h">
+    <ClInclude Include="LesData3.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="sted.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="sykkel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="tralle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="utleiesteder.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="KUNDER.DTA">
-      <Filter>Resource Files</Filter>
-    </None>
+    <ClCompile Include="elsparkesykkel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="funksjoner.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gjenstand.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="kunde.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="kunder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LesData3.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="sted.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="sykkel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tralle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="utleiesteder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

@@ -1,19 +1,20 @@
-﻿  funksjoner.cpp
-G:\GITLAB\gruppe45\source\sted.h(11,34): error C2504: 'Utleiesteder': base class undefined
-G:\GITLAB\gruppe45\source\kunde.h(10,29): error C2504: 'Kunder': base class undefined
+﻿  elsparkesykkel.cpp
+  funksjoner.cpp
+G:\GITLAB\gruppe45\source\funksjoner.cpp(28,23): warning C4018: '<': signed/unsigned mismatch
+  gjenstand.cpp
+  kunde.cpp
   kunder.cpp
-G:\GITLAB\gruppe45\source\kunde.h(10,29): error C2504: 'Kunder': base class undefined
+G:\GITLAB\gruppe45\source\kunder.cpp(212,67): warning C4018: '<': signed/unsigned mismatch
+G:\GITLAB\gruppe45\source\kunder.cpp(234,66): warning C4018: '<': signed/unsigned mismatch
+G:\GITLAB\gruppe45\source\kunder.cpp(256,74): warning C4018: '<': signed/unsigned mismatch
+  LesData3.cpp
   Source.cpp
-G:\GITLAB\gruppe45\source\sted.h(11,34): error C2504: 'Utleiesteder': base class undefined
-G:\GITLAB\gruppe45\source\kunde.h(10,29): error C2504: 'Kunder': base class undefined
-G:\GITLAB\gruppe45\source\Source.cpp(19,15): error C2039: 'lesFraFil': is not a member of 'Utleiesteder'
-G:\GITLAB\gruppe45\source\utleiesteder.h(8): message : see declaration of 'Utleiesteder'
-G:\GITLAB\gruppe45\source\Source.cpp(26,32): error C2039: 'handling': is not a member of 'Kunder'
-G:\GITLAB\gruppe45\source\kunder.h(10): message : see declaration of 'Kunder'
-G:\GITLAB\gruppe45\source\Source.cpp(28,31): error C2039: 'handling': is not a member of 'Utleiesteder'
-G:\GITLAB\gruppe45\source\utleiesteder.h(8): message : see declaration of 'Utleiesteder'
-G:\GITLAB\gruppe45\source\Source.cpp(34,16): error C2039: 'skrivTilFil': is not a member of 'Kunder'
-G:\GITLAB\gruppe45\source\kunder.h(10): message : see declaration of 'Kunder'
-G:\GITLAB\gruppe45\source\Source.cpp(35,15): error C2039: 'skrivTilFil': is not a member of 'Utleiesteder'
-G:\GITLAB\gruppe45\source\utleiesteder.h(8): message : see declaration of 'Utleiesteder'
+  sted.cpp
+  sykkel.cpp
+  tralle.cpp
+  utleiesteder.cpp
+G:\GITLAB\gruppe45\source\utleiesteder.cpp(125,35): warning C4018: '>': signed/unsigned mismatch
+G:\GITLAB\gruppe45\source\utleiesteder.cpp(144,35): warning C4018: '>': signed/unsigned mismatch
+G:\GITLAB\gruppe45\source\utleiesteder.cpp(164,35): warning C4018: '>': signed/unsigned mismatch
   Generating Code...
+  source.vcxproj -> G:\GITLAB\gruppe45\Debug\source.exe
