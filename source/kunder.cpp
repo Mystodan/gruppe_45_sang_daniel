@@ -208,12 +208,12 @@ void Kundebase :: hentGjenstand() {
 
     else {
         int kundeNr, antall;
-        char type;
+        char type = 'X';
         string sted;
         bool kIngenMatch = false;
         bool sIngenMatch = false;
         kundeNr = lesInt("Hvilken kunde skal laane en gjenstand?", 1, sisteKundeNr);
-        type = lesChar("Hvilken type gjenstand vil kunden laane? (T, S, E)");
+        while(!((type == 'T') || (type == 'S')|| (type == 'E'))) {type = lesChar("Hvilken type gjenstand vil du flytte? (E, S, T)");}
         antall = lesInt("Hvor mange av denne gjenstanden vil kunden laane?", 0, 100);
         cout << "Hvilket sted vil kunden laane fra?\t";
         gUtleiesteder->visAlleStedNavn();
@@ -314,7 +314,7 @@ void Kundebase :: hentGjenstand() {
             }   break;
         }
         if (kIngenMatch) {
-            cout << "FANT IKKE KUNDEN"<<endl;
+            cout << "FANT IKKE KUNDEN"<< endl;
         }
         if (sIngenMatch) {
             cout << "FANT IKKE STEDET" << endl;
