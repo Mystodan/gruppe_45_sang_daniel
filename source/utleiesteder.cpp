@@ -62,12 +62,17 @@ void Utleiesteder :: visEtSted() const {
     if(steder.empty()) {cout << "Ingen steder er lagt til!\n";}
 
     else {
+        visAlleStedNavn();
         string navn;
         cout << "Skriv inn navn:\t";
         getline(cin, navn);
         for(const auto & val : steder) {
-            if(navn == val.second->navn) {cout << "\tNavn:  " << val.second->navn << ",  tlf: " << val.second->tlf << ",  tjente kr: " << val.second->tjenteKr << ",  beskrivelse: " << val.second->beskrivelse << '\n';}
+            if(toupperS(navn) == toupperS(val.second->navn)) {
+                cout << "\tNavn:  " << val.second->navn << ",  tlf: " << val.second->tlf << ",  tjente kr: " << val.second->tjenteKr << ",  beskrivelse: " << val.second->beskrivelse << '\n';
+                return;
+            }
         }
+        cout << "Fant ikke sted med dette navnet!\n";
     }
 }
 
@@ -110,8 +115,8 @@ void Utleiesteder :: flyttGjenstander() {
         string sted1, sted2;
         char type;
 
-        type = lesChar("Hvilken gjenstand vil du flytte?");
-        antall = lesInt("Hvor mange gjenstander vil du flytte?", 0, 100);
+        while(!((type == 'T') || (type == 'S')|| (type == 'E'))) {type = lesChar("Hvilken type gjenstand vil du flytte? (E, S, T)");}
+        antall = lesInt("Hvor mange gjenstander av denne typen vil du flytte?", 0, 100);
         visAlleStedNavn();
         cout << "Hvor vil du flytte gjenstandene fra?:\t";
         getline(cin, sted1);
@@ -232,8 +237,8 @@ void Utleiesteder :: skrivTilFil() {
 
 
 void Utleiesteder :: slettSted() {
-
     if(steder.empty()) {cout << "Ingen steder er lagt til!\n";}
+
     else {
         char valg = promptStart("sted");
         if (valg == 'J') {
@@ -249,11 +254,12 @@ void Utleiesteder :: slettSted() {
                             cout << "Hvilket sted vil du levere gjenstandene hen?" << endl;
                             cout << "Sted:\t";
                             getline(cin, tilNavn);
-                        for (const auto& val2 : steder) {
+                        for (const auto & val2 : steder) {
                             if (toupperS(tilNavn) == toupperS(navn)) {
-                                    cout << "Kan ikke overfore til et sted som skal slettes" << endl;
-                                    break;
+                                cout << "Kan ikke overfore til et sted som skal slettes" << endl;
+                                return;
                             }
+
                             else {
                                 if (toupperS(val2.second->navn) == toupperS(tilNavn)) {
                                     if (val.second->elsparkesykler.size() > 0) {
@@ -273,21 +279,23 @@ void Utleiesteder :: slettSted() {
                                             val.second->traller.pop_back();
                                         }
                                     }
+                                    cout << '\n' << "Sletting fullfort!\n";
                                     delete steder[navn];
                                     steder.erase(navn);
-                                    break;
+                                    return;
                                 }
                             }
                         }
                     }
                     else {
-                        cout << steder[navn] << "har blitt slettet";
+                        cout << '\n' << "Sletting fullfort!\n";
                         delete steder[navn];
                         steder.erase(navn);
-                        break;
+                        return;
                    }
                 }
             }
+            cout << "Fant ikke sted med dette navnet!\n";
         }
         else { cout << promptEnd("sted"); }
     }
