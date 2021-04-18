@@ -19,7 +19,6 @@ Utleiesteder :: Utleiesteder()  {         //  Initierer evt. 'Utleiesteder'
 
 }
 
-
 Utleiesteder ::  ~Utleiesteder()  {       //  Sletter alt i vectoren:
     steder.clear();
 }
@@ -114,7 +113,7 @@ void Utleiesteder :: flyttGjenstander() {
         int antall;
         string sted1, sted2;
         char type;
-
+        bool eSted1 = false, eSted2 = false;
         while(!((type == 'T') || (type == 'S')|| (type == 'E'))) {type = lesChar("Hvilken type gjenstand vil du flytte? (E, S, T)");}
         antall = lesInt("Hvor mange gjenstander av denne typen vil du flytte?", 0, 100);
         visAlleStedNavn();

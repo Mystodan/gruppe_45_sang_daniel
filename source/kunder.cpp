@@ -385,6 +385,9 @@ void Kundebase::slettKunde(){
                 cout << "Kunde ble slettet!";
                 return;
                 }
+                else {
+                    cout << "Ikke en registrert kunde!"<< endl;
+                }
             }
         }
         else { cout << promptEnd("kunde");
