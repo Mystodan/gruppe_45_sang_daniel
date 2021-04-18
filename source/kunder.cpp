@@ -41,12 +41,22 @@ void Kundebase :: nyKunde(const string & nvn)  {
 
 
 void Kundebase :: visAlleKunder() const {
+    int teller = 0;
+    string stop = "";
+
     if(kunder.empty()) {cout << "Ingen kunder er lagt til!\n";}
 
     else {
         cout << "\n\nKUNDEBASENS INNHOLD:\n";
-        for (const auto & val : kunder)
+        for (const auto & val : kunder) {
+            if(teller % 20 == 0 && teller > 0) {
+                cout << "Trykk paa en tast for aa fortsette aa skrive ut";
+                getline(cin, stop);
+            }
             cout << "\tNavn:  " << val->navn << ",  tlf: " << val->tlf << ",  kundeNR: " << val->kundeNr << ",  laante gjenstander: " << (val->kundeGjenstander).size() << '\n';
+            teller++;
+        }
+
     }
 }
 
