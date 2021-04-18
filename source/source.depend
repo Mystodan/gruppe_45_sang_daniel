@@ -129,3 +129,133 @@
 	"LesData3.h"
 	"funksjoner.h"
 
+1618764487 source:c:\gitlab\gruppe45\source\elsparkesykkel.cpp
+	<iostream>
+	<string>
+	"LesData3.h"
+	"elsparkesykkel.h"
+
+1618512782 c:\gitlab\gruppe45\source\lesdata3.h
+
+1618764511 c:\gitlab\gruppe45\source\elsparkesykkel.h
+	"gjenstand.h"
+
+1618764544 c:\gitlab\gruppe45\source\gjenstand.h
+	<string>
+
+1618762279 source:c:\gitlab\gruppe45\source\funksjoner.cpp
+	<iostream>
+	<string>
+	<vector>
+	<list>
+	"kunder.h"
+	"utleiesteder.h"
+	"gjenstand.h"
+	"funksjoner.h"
+	"tralle.h"
+	"elsparkesykkel.h"
+	"sykkel.h"
+	"LesData3.h"
+
+1618759249 c:\gitlab\gruppe45\source\kunder.h
+	<string>
+	<list>
+	"kunde.h"
+
+1618764560 c:\gitlab\gruppe45\source\kunde.h
+	<string>
+	<vector>
+	"sted.h"
+
+1618764591 c:\gitlab\gruppe45\source\sted.h
+	<string>
+	<vector>
+	"tralle.h"
+	"sykkel.h"
+	"elsparkesykkel.h"
+
+1618764601 c:\gitlab\gruppe45\source\tralle.h
+	"gjenstand.h"
+
+1618764601 c:\gitlab\gruppe45\source\sykkel.h
+	"gjenstand.h"
+
+1618760873 c:\gitlab\gruppe45\source\utleiesteder.h
+	<string>
+	<map>
+	"sted.h"
+
+1618760124 c:\gitlab\gruppe45\source\funksjoner.h
+
+1618764471 source:c:\gitlab\gruppe45\source\gjenstand.cpp
+	<iostream>
+	<string>
+	"gjenstand.h"
+	"LesData3.h"
+
+1618734628 source:c:\gitlab\gruppe45\source\kunde.cpp
+	<iostream>
+	<string>
+	<fstream>
+	"kunde.h"
+	"funksjoner.h"
+	"LesData3.h"
+
+1618766539 source:c:\gitlab\gruppe45\source\kunder.cpp
+	<list>
+	<iostream>
+	<string>
+	<fstream>
+	"kunde.h"
+	"kunder.h"
+	"LesData3.h"
+	"funksjoner.h"
+	"utleiesteder.h"
+	"const.h"
+
+1618763346 c:\gitlab\gruppe45\source\const.h
+
+1618512782 source:c:\gitlab\gruppe45\source\lesdata3.cpp
+	<iostream>
+	<iomanip>
+	<cctype>
+	<cstdlib>
+	"LesData3.h"
+
+1618760093 source:c:\gitlab\gruppe45\source\source.cpp
+	<iostream>
+	"kunder.h"
+	"utleiesteder.h"
+	"funksjoner.h"
+	"gjenstand.h"
+	"LesData3.h"
+
+1618759491 source:c:\gitlab\gruppe45\source\sted.cpp
+	<iostream>
+	<string>
+	<fstream>
+	"LesData3.h"
+	"utleiesteder.h"
+	"sted.h"
+
+1618764607 source:c:\gitlab\gruppe45\source\sykkel.cpp
+	<iostream>
+	<string>
+	"LesData3.h"
+	"sykkel.h"
+
+1618764613 source:c:\gitlab\gruppe45\source\tralle.cpp
+	<iostream>
+	<string>
+	"LesData3.h"
+	"tralle.h"
+
+1618761756 source:c:\gitlab\gruppe45\source\utleiesteder.cpp
+	<iostream>
+	<string>
+	<fstream>
+	"sted.h"
+	"utleiesteder.h"
+	"LesData3.h"
+	"funksjoner.h"
+
