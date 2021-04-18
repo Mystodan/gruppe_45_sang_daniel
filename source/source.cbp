@@ -123,7 +123,30 @@
 				</Linker>
 			</Target>
 		</Build>
+		<Unit filename="LesData3.cpp" />
+		<Unit filename="LesData3.h" />
 		<Unit filename="Source.cpp" />
+		<Unit filename="const.h" />
+		<Unit filename="elsparkesykkel.cpp" />
+		<Unit filename="elsparkesykkel.h" />
+		<Unit filename="enum.h" />
+		<Unit filename="funksjoner.cpp" />
+		<Unit filename="funksjoner.h" />
+		<Unit filename="gjenstand.cpp" />
+		<Unit filename="gjenstand.h" />
+		<Unit filename="kunde.cpp" />
+		<Unit filename="kunde.h" />
+		<Unit filename="kunder.cpp" />
+		<Unit filename="kunder.h" />
+		<Unit filename="source.cbp" />
+		<Unit filename="sted.cpp" />
+		<Unit filename="sted.h" />
+		<Unit filename="sykkel.cpp" />
+		<Unit filename="sykkel.h" />
+		<Unit filename="tralle.cpp" />
+		<Unit filename="tralle.h" />
+		<Unit filename="utleiesteder.cpp" />
+		<Unit filename="utleiesteder.h" />
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>
