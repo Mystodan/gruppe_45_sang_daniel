@@ -173,6 +173,7 @@ void Kundebase :: leverGjenstand() {
             if (kundeNr == val->kundeNr) {
                 for (const auto & val2 : gUtleiesteder->steder) {
                     if (toupperS(val2.second->navn) == toupperS(sted)) {
+                        sted = val2.second->navn;
                         for (const auto & val3 : val->kundeGjenstander) {
                             if(val3->gjenstandType == 'T') {
                                 val2.second->traller.push_back(new Tralle(val3->gjenstandNr,'T'));
@@ -226,6 +227,7 @@ void Kundebase :: hentGjenstand() {
                     if (kundeNr == val->kundeNr) {
                         for (const auto & val2 : gUtleiesteder->steder) {
                             if (toupperS(val2.second->navn) == toupperS(sted)) {
+                                sted = val2.second->navn;
                                 if ((val2.second->traller).size() < antall) { cout << "Det er ikke nok traller paa dette stedet!\n"; }
 
                                 else {
@@ -255,6 +257,7 @@ void Kundebase :: hentGjenstand() {
                     if (kundeNr == val->kundeNr) {
                         for (const auto & val2 : gUtleiesteder->steder) {
                             if (toupperS(val2.second->navn) == toupperS(sted)) {
+                                sted = val2.second->navn;
                                 if ((val2.second->sykler).size() < antall) { cout << "Det er ikke nok sykler paa dette stedet!\n"; }
 
                                 else {
@@ -284,6 +287,7 @@ void Kundebase :: hentGjenstand() {
                     if (kundeNr == val->kundeNr) {
                         for (const auto & val2 : gUtleiesteder->steder) {
                             if (toupperS(val2.second->navn) == toupperS(sted)) {
+                                sted = val2.second->navn;
                                 if ((val2.second->elsparkesykler).size() < antall) { cout << "Det er ikke nok elsparkesykler paa dette stedet!\n"; }
 
                                 else {
@@ -314,10 +318,10 @@ void Kundebase :: hentGjenstand() {
             }   break;
         }
         if (kIngenMatch) {
-            cout << "FANT IKKE KUNDEN"<< endl;
+            cout << "UGYLDIG KUNDE"<< endl;
         }
         if (sIngenMatch) {
-            cout << "FANT IKKE STEDET" << endl;
+            cout << "UGYLDIG STED" << endl;
         }
 
     }
@@ -352,6 +356,7 @@ void Kundebase::slettKunde(){
                         getline(cin, tilNavn);
                           for (const auto& valy : gUtleiesteder->steder) {
                                 if (toupperS(valy.second->navn) == toupperS(tilNavn)) {
+                                    tilNavn = valy.second->navn;
                                     if (valx->kundeGjenstander.size() > 0) {
                                             for (const auto& valx2 : valx->kundeGjenstander) {
                                                 switch (valx2->gjenstandType) {

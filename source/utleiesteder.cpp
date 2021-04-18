@@ -112,8 +112,8 @@ void Utleiesteder :: flyttGjenstander() {
     else {
         int antall;
         string sted1, sted2;
-        char type;
-        bool eSted1 = false, eSted2 = false;
+        char type = 'X';
+        bool s1IngenMatch = false, s2IngenMatch = false;
         while(!((type == 'T') || (type == 'S')|| (type == 'E'))) {type = lesChar("Hvilken type gjenstand vil du flytte? (E, S, T)");}
         antall = lesInt("Hvor mange gjenstander av denne typen vil du flytte?", 0, 100);
         visAlleStedNavn();
@@ -125,20 +125,24 @@ void Utleiesteder :: flyttGjenstander() {
         switch (type) {
             case 'E': {
                 for(const auto & val : steder) {
-                    if(sted1 == val.second->navn) {
-                        if(antall > (val.second->elsparkesykler).size()) {cout << "Dette stedet har ikke nok av denne gjenstanden!\n";}
+                    if (sted1 == val.second->navn) {
+                        if (antall > (val.second->elsparkesykler).size()) { cout << "Dette stedet har ikke nok av denne gjenstanden!\n"; }
 
                         else {
-                            for(const auto & val2 : steder) {
-                                if(sted2 == val2.second->navn) {
-                                    for(int i = 0; i < antall; i++) {
+                            for (const auto& val2 : steder) {
+                                if (sted2 == val2.second->navn) {
+                                    for (int i = 0; i < antall; i++) {
                                         (val2.second->elsparkesykler).push_back((val.second->elsparkesykler).front());
                                         (val.second->elsparkesykler).pop_back();
                                     }
                                 }
+                                else
+                                    s2IngenMatch = true;
                             }
                         }
                     }
+                    else
+                        s1IngenMatch = true;
                 }
             }    break;
 
@@ -155,11 +159,14 @@ void Utleiesteder :: flyttGjenstander() {
                                         (val.second->sykler).pop_back();
                                     }
                                 }
+                                else
+                                    s2IngenMatch = true;
                             }
                         }
                     }
+                    else
+                        s1IngenMatch = true;
                 }
-
             }    break;
 
             case 'T': {
@@ -175,11 +182,21 @@ void Utleiesteder :: flyttGjenstander() {
                                         (val.second->traller).pop_back();
                                     }
                                 }
+                                else
+                                    s2IngenMatch = true;
                             }
                         }
                     }
+                    else
+                        s1IngenMatch = true;
                 }
             }    break;
+        }
+        if (s1IngenMatch) {
+            cout << "UGYLDIG SENDER" << endl;
+        }
+        if (s2IngenMatch) {
+            cout << "UGYLDIG MOTTAKER" << endl;
         }
     }
 }
@@ -261,6 +278,7 @@ void Utleiesteder :: slettSted() {
 
                             else {
                                 if (toupperS(val2.second->navn) == toupperS(tilNavn)) {
+                                    tilNavn = val2.second->navn;
                                     if (val.second->elsparkesykler.size() > 0) {
                                         for (const auto & val3 : val2.second->elsparkesykler)
                                             val2.second->elsparkesykler.push_back(val.second->elsparkesykler.front());
