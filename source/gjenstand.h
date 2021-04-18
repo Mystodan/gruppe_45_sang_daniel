@@ -34,7 +34,6 @@ class Gjenstand  {
             this->watt = watt;
         };
         virtual ~Gjenstand() {}
-        virtual void lesData();
         virtual void skrivData();
 };
 

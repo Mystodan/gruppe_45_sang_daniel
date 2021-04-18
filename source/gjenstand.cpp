@@ -10,10 +10,6 @@
                                     //  NB:  LesData3.h - nr.3 !!!
 using namespace std;
 
-void Gjenstand :: lesData() {
-
-}
-
 void Gjenstand :: skrivData() {
     cout << "\tNummer:\t" << gjenstandNr << " ";
 }

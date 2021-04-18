@@ -24,7 +24,3 @@ void Elsparkesykkel :: lesData()  {
             watt = val;
     }
 }
-
-void Elsparkesykkel::skrivData() {
-
-};

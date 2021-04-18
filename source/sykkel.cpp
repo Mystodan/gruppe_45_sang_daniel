@@ -16,8 +16,3 @@ using namespace std;
 void Sykkel :: lesData()  {
     harTilhenger = lesInt("Har den tilhenger?", 0, 1);
 }
-
-void Sykkel::skrivData() {
-
-};
-

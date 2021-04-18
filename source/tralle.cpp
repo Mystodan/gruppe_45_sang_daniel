@@ -16,7 +16,3 @@ using namespace std;
 void Tralle :: lesData()  {
     harStropp = lesInt("Har den stropp?", 0, 1);
 }
-
-void Tralle::skrivData() {
-
-};

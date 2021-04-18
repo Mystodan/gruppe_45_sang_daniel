@@ -20,7 +20,6 @@ class Elsparkesykkel : public Gjenstand {
         ~Elsparkesykkel() {}
 
         virtual void lesData();
-        virtual void skrivData();
 };
 
 #endif

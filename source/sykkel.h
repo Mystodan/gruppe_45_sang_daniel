@@ -20,7 +20,6 @@ class Sykkel : public Gjenstand {
         ~Sykkel() {}
 
         virtual void lesData();
-        virtual void skrivData();
 };
 
 #endif

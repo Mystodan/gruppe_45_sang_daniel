@@ -19,7 +19,6 @@ class Tralle : public Gjenstand {
         ~Tralle() {}
 
         virtual void lesData();
-        virtual void skrivData();
 };
 
 #endif
