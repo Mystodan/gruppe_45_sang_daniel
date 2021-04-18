@@ -56,22 +56,24 @@ void nyGjenstand()  {
             if ((toupperS(stdnvn) == toupperS(val.second->navn))) {
 
                 type = lesChar("\nHvilke Gjenstand? S - Sykkel, E - Elsparkesykkel, T - Tralle \t");
+                int antall = lesInt("Hvor mange gjenstander vil du legge til?", 1, 1000);
 
-                switch (type) {
-                    case 'S': {
-                        Sykkel* nySykkel = new Sykkel(++antallGjenstander, type);
-                        val.second->sykler.push_back(nySykkel);
-                    };  break;
-                    case 'E': {
-                        Elsparkesykkel* nyElsparkesykkel = new Elsparkesykkel(++antallGjenstander, type);
-                        val.second->elsparkesykler.push_back(nyElsparkesykkel);
-                    };  break;
-                    case 'T': {
-                        Tralle* nyTralle = new Tralle(++antallGjenstander, type);
-                        val.second->traller.push_back(nyTralle);
-                    };  break;
+                for(int i = 0; i < antall; i++) {
+                    switch (type) {
+                        case 'S': {
+                            Sykkel* nySykkel = new Sykkel(++antallGjenstander, type);
+                            val.second->sykler.push_back(nySykkel);
+                        };  break;
+                        case 'E': {
+                            Elsparkesykkel* nyElsparkesykkel = new Elsparkesykkel(++antallGjenstander, type);
+                            val.second->elsparkesykler.push_back(nyElsparkesykkel);
+                        };  break;
+                        case 'T': {
+                            Tralle* nyTralle = new Tralle(++antallGjenstander, type);
+                            val.second->traller.push_back(nyTralle);
+                        };  break;
+                    }
                 }
-
             }
         }
     }
