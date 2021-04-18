@@ -1,3 +1,5 @@
-﻿  funksjoner.cpp
-G:\GITLAB\gruppe45\source\funksjoner.cpp(28,23): warning C4018: '<': signed/unsigned mismatch
+﻿  kunder.cpp
+G:\GITLAB\gruppe45\source\kunder.cpp(229,67): warning C4018: '<': signed/unsigned mismatch
+G:\GITLAB\gruppe45\source\kunder.cpp(258,66): warning C4018: '<': signed/unsigned mismatch
+G:\GITLAB\gruppe45\source\kunder.cpp(287,74): warning C4018: '<': signed/unsigned mismatch
   source.vcxproj -> G:\GITLAB\gruppe45\Debug\source.exe

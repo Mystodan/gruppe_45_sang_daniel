@@ -275,7 +275,7 @@ void Utleiesteder :: slettSted() {
                                     }
                                     delete steder[navn];
                                     steder.erase(navn);
-                                    break;
+                                    return;
                                 }
                             }
                         }
@@ -284,7 +284,7 @@ void Utleiesteder :: slettSted() {
                         cout << steder[navn] << "har blitt slettet";
                         delete steder[navn];
                         steder.erase(navn);
-                        break;
+                        return;
                    }
                 }
             }

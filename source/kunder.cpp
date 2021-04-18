@@ -163,7 +163,7 @@ void Kundebase :: leverGjenstand() {
         int kundeNr;
         string sted;
 
-        kundeNr = lesInt("Hvilken kunde skal levere gjenstandene sine?", 1, kunder.size());
+        kundeNr = lesInt("Hvilken kunde skal levere gjenstandene sine?", 1, sisteKundeNr);
         cout << "Hvilket sted vil kunden levere til?\t";
         gUtleiesteder->visAlleStedNavn();
         cout << "Stednavn:\t";
@@ -193,6 +193,10 @@ void Kundebase :: leverGjenstand() {
                             }
                         }
                     }
+                    else {
+                        cout << "Dette stedet eksisterer ikke!\n";
+                        return;
+                    }
                 }
             }
         }
@@ -206,8 +210,9 @@ void Kundebase :: hentGjenstand() {
         int kundeNr, antall;
         char type;
         string sted;
-
-        kundeNr = lesInt("Hvilken kunde skal laane en gjenstand?", 1, gKunder->kunder.size());
+        bool kIngenMatch = false;
+        bool sIngenMatch = false;
+        kundeNr = lesInt("Hvilken kunde skal laane en gjenstand?", 1, sisteKundeNr);
         type = lesChar("Hvilken type gjenstand vil kunden laane? (T, S, E)");
         antall = lesInt("Hvor mange av denne gjenstanden vil kunden laane?", 0, 100);
         cout << "Hvilket sted vil kunden laane fra?\t";
@@ -233,7 +238,14 @@ void Kundebase :: hentGjenstand() {
                                     }
                                 }
                             }
+                            else {
+                                sIngenMatch = true;
+                            }
                         }
+                    }
+                    else
+                    {
+                        kIngenMatch = true;
                     }
                 }
             }   break;
@@ -255,7 +267,14 @@ void Kundebase :: hentGjenstand() {
                                     }
                                 }
                             }
+                            else {
+                                sIngenMatch = true;
+                            }
                         }
+                    }
+                    else
+                    {
+                        kIngenMatch = true;
                     }
                 }
             }   break;
@@ -282,11 +301,25 @@ void Kundebase :: hentGjenstand() {
                                     }
                                 }
                             }
+                            else {
+                                sIngenMatch = true;
+                            }
                         }
+                    }
+                    else
+                    {
+                        kIngenMatch = true;
                     }
                 }
             }   break;
         }
+        if (kIngenMatch) {
+            cout << "FANT IKKE KUNDEN"<<endl;
+        }
+        if (sIngenMatch) {
+            cout << "FANT IKKE STEDET" << endl;
+        }
+
     }
 }
 
@@ -310,7 +343,7 @@ void Kundebase::slettKunde(){
             string tilNavn;
             cout << "Hvilken kunde vil du slette?" << endl;
             visKundeID();
-            id = lesInt("KundeNR:", 0, kunder.size());
+            id = lesInt("KundeNR:", 1, sisteKundeNr);
             for (const auto& valx : kunder) {
                 if ((valx->kundeNr) == (id)) {
                     if (valx->kundeGjenstander.size() > 0) {
@@ -342,7 +375,7 @@ void Kundebase::slettKunde(){
                                         delete valx;
                                         kunder.remove(valx);
                                         cout << "Kunde ble slettet!";
-                                        break;
+                                        return;
                                     }
                                 }
                           }
@@ -350,7 +383,7 @@ void Kundebase::slettKunde(){
                 delete valx;
                 kunder.remove(valx);
                 cout << "Kunde ble slettet!";
-                break;
+                return;
                 }
             }
         }
