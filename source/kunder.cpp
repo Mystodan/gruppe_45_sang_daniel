@@ -36,6 +36,7 @@ void Kundebase :: nyKunde(const string & nvn)  {
     nyKunde->kundeNr = ++sisteKundeNr;
     nyKunde->lesData();
     kunder.push_back(nyKunde);
+    kunder.sort([](const Kunde* k1, const Kunde* k2) {return (k1->navn) < (k2->navn);});
 }
 
 
@@ -75,6 +76,7 @@ void Kundebase :: lesFraFil() {
             nyKunde = new Kunde(innfil);
             nyKunde->kundeNr = ++sisteKundeNr;
             kunder.push_back(nyKunde);
+            kunder.sort([](const Kunde* k1, const Kunde* k2) {return (k1->navn) < (k2->navn);});
 
             innfil >> antallT1 >> antallT2 >> antallS1 >> antallS2 >> antallE1 >> antallE2;
 
