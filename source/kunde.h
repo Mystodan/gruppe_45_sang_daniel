@@ -1,19 +1,25 @@
+/**
+ *   @file     kunde.h
+ *   @author   Daniel og Sang
+ */
+
 
 #ifndef __KUNDE_H
 #define __KUNDE_H
 
 #include <string>
 #include <vector>
-#include "gjenstand.h"
-#include "kunder.h"
+#include "sted.h"
 
-class Kunde : public Kunder {
-    private:
-        std::string navn;							// navn
-        std::vector <Gjenstand*> leideGjenstander;	// usortert vector med nåværende leide gjenstander
-        int kundeNr, mobilNr;						// kundens unike nummer (sortert på dette), mobilnummer
-
+class Kunde {
     public:
-};
+        int tlf, kundeNr;
+        std::string navn;
+        std::vector <Gjenstand*> kundeGjenstander;
 
+        Kunde() {tlf = kundeNr = 0;}
+        Kunde(std::ifstream & inn);
+        virtual ~Kunde();
+        virtual void lesData();
+};
 #endif

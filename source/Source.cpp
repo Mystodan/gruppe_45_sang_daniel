@@ -1,42 +1,100 @@
+/**
+ *   Prosjekt
+ *
+ *   Programmet:
+ *
+ *   @file     source.cpp
+ *   @author   Daniel og Sang
+ */
+
+
+// ***************************************************************************
+// NB:  Koden i alle disse syv filene EKS_27...... er bevisst stort sett
+//      strippet for kommentarer etter Doxygen-standarden. Dette er gjort for
+//      lettere å se og lese hovedpoenget med dette multifilsprogrammet.
+//      Dessuten er det brukt 'struct' - for å forenkle og forkorte koden.
+// ***************************************************************************
+
 
 #include <iostream>
-#include "funksjoner.h"
-#include "LesData3.h"
-#include "kunder.h"
-#include "utleiesteder.h"
-
+#include "kunder.h"                 //  'Kundebase'
+#include "utleiesteder.h"           //  'Utleiesteder'
+#include "funksjoner.h"             //  Funksjonen 'Ny'
+#include "gjenstand.h"              //  'Gjenstand'
+#include "LesData3.h"               //  Verktøykasse for lesing av diverse data
+                                    //  NB:  LesData3.h - nr.3 !!!
 using namespace std;
 
 
-Kunder gKundebase;
-Utleiesteder gStedbase;
+Kundebase*  gKunder;                ///<  Datastrukturen med ALLE kundene.
+Utleiesteder* gUtleiesteder;        ///<  Datastrukturen med ALLE utleiesteder.
+int antallGjenstander = 0;
 
-  extern Kunder gKundebase;
-  extern Utleiesteder gStedbase;
-
-
+/**
+ *  Hovedprogrammet:
+ */
 int main() {
-    char valg;
+    char kommando;
 
-    gKundebase.lesFraFil();
-    gStedbase.lesFraFil();
+    gKunder = new Kundebase;
+    gUtleiesteder = new Utleiesteder;
+
+    gKunder->lesFraFil();
+    gUtleiesteder->lesFraFil();
 
     skrivMeny();
-    valg = lesChar("\nKommando");
+    kommando = lesChar("\nKommando");
 
-    while (valg != 'Q') {
-        switch (valg) {
-        case 'K':        break;
-        case 'S':    break;
-        case 'G':      break;
-        default:   skrivMeny();                break;
+    while (kommando != 'Q') {
+        switch (kommando) {
+            case 'K':  {
+                skrivMenyKunder();
+                kommando = lesChar("\nKommando");
+                switch (kommando) {
+                    case 'N':  {nyKunde();}                                 break;
+                    case 'A':  {gKunder->visAlleKunder();}                  break;
+                    case '1':  {gKunder->visEnKunde();}                     break;
+                    case 'H':  {gKunder->hentGjenstand();}                  break;
+                    case 'L':  {gKunder->leverGjenstand();}                 break;
+                    case 'S':  {gKunder->slettKunde();}                     break;
+                }
+            }   break;
+
+            case 'S':  {
+                skrivMenyUtleiesteder();
+                kommando = lesChar("\nKommando");
+                switch (kommando) {
+                    case 'N':  {nyttUtleiested();}                          break;
+                    case 'A':  {gUtleiesteder->visAlleSteder();}            break;
+                    case '1':  {gUtleiesteder->visEtSted();}                break;
+                    case 'T':  {gUtleiesteder->visTjenteKr();}              break;
+                    case 'I':  {gUtleiesteder->visLedigeGjenstander();}     break;
+                    case 'O':  {gUtleiesteder->flyttGjenstander();}         break;
+                    case 'S':  {gUtleiesteder->slettSted();}                break;
+                }
+            }                                                               break;
+
+            case 'G': {
+                skrivMenyGjenstander();
+                kommando = lesChar("\nKommando");
+                switch (kommando) {
+                    case 'N': {nyGjenstand();}                              break;
+                    case 'F': {finnGjenstand();}                            break;
+                    case 'S': {slettGjenstand();}                           break;
+                }
+            }   break;
         }
-        valg = lesChar("\nKommando");
+        skrivMeny();
+        kommando = lesChar("\nKommando");
     }
-     
-    gKundebase.skrivTilFil();
-    gStedbase.skrivTilFil();
-   
+
+    gKunder->skrivTilFil();
+    gUtleiesteder->skrivTilFil();
+
+    delete gKunder;
+    delete gUtleiesteder;
+
     cout << "\n\n";
+
     return 0;
 }
