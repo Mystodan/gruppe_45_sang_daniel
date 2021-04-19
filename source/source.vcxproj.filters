@@ -18,6 +18,9 @@
     <None Include="KUNDER.DTA">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="STEDER.DTA">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="const.h">

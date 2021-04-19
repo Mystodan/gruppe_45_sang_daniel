@@ -211,8 +211,8 @@ void Kundebase :: hentGjenstand() {
         int kundeNr, antall;
         char type = 'X';
         string sted;
-        bool kIngenMatch = false;
-        bool sIngenMatch = false;
+        bool kIngenMatch = false, sIngenMatch = false, sBekreft = false, kBekreft = false;
+        
         kundeNr = lesInt("Hvilken kunde skal laane en gjenstand?", 1, sisteKundeNr);
         while(!((type == 'T') || (type == 'S')|| (type == 'E'))) {type = lesChar("Hvilken type gjenstand vil du flytte? (E, S, T)");}
         antall = lesInt("Hvor mange av denne gjenstanden vil kunden laane?", 0, 100);
@@ -227,6 +227,7 @@ void Kundebase :: hentGjenstand() {
                     if (kundeNr == val->kundeNr) {
                         for (const auto & val2 : gUtleiesteder->steder) {
                             if (toupperS(val2.second->navn) == toupperS(sted)) {
+                                sBekreft = true;
                                 sted = val2.second->navn;
                                 if ((val2.second->traller).size() < antall) { cout << "Det er ikke nok traller paa dette stedet!\n"; }
 
@@ -237,6 +238,7 @@ void Kundebase :: hentGjenstand() {
                                         ((val3).back())->lesData();
                                         val->kundeGjenstander.push_back((val3).back());
                                         (val2.second->traller).pop_back();
+                                        sBekreft = true;
                                     }
                                 }
                             }
@@ -257,6 +259,7 @@ void Kundebase :: hentGjenstand() {
                     if (kundeNr == val->kundeNr) {
                         for (const auto & val2 : gUtleiesteder->steder) {
                             if (toupperS(val2.second->navn) == toupperS(sted)) {
+                                kBekreft = true;
                                 sted = val2.second->navn;
                                 if ((val2.second->sykler).size() < antall) { cout << "Det er ikke nok sykler paa dette stedet!\n"; }
 
@@ -267,6 +270,7 @@ void Kundebase :: hentGjenstand() {
                                         ((val3).back())->lesData();
                                         val->kundeGjenstander.push_back((val3).back());
                                         (val2.second->sykler).pop_back();
+                                        sBekreft = true;
                                     }
                                 }
                             }
@@ -287,6 +291,7 @@ void Kundebase :: hentGjenstand() {
                     if (kundeNr == val->kundeNr) {
                         for (const auto & val2 : gUtleiesteder->steder) {
                             if (toupperS(val2.second->navn) == toupperS(sted)) {
+                                sBekreft = true;
                                 sted = val2.second->navn;
                                 if ((val2.second->elsparkesykler).size() < antall) { cout << "Det er ikke nok elsparkesykler paa dette stedet!\n"; }
 
@@ -317,10 +322,10 @@ void Kundebase :: hentGjenstand() {
                 }
             }   break;
         }
-        if (kIngenMatch) {
+        if (kIngenMatch && !kBekreft) {
             cout << "UGYLDIG KUNDE"<< endl;
         }
-        if (sIngenMatch) {
+        if (sIngenMatch && !sBekreft) {
             cout << "UGYLDIG STED" << endl;
         }
 

@@ -113,7 +113,7 @@ void Utleiesteder :: flyttGjenstander() {
         int antall;
         string sted1, sted2;
         char type = 'X';
-        bool s1IngenMatch = false, s2IngenMatch = false;
+        bool s1IngenMatch = false, s2IngenMatch = false, s1Bekreft = false, s2Bekreft = false;
         while(!((type == 'T') || (type == 'S')|| (type == 'E'))) {type = lesChar("Hvilken type gjenstand vil du flytte? (E, S, T)");}
         antall = lesInt("Hvor mange gjenstander av denne typen vil du flytte?", 0, 100);
         visAlleStedNavn();
@@ -126,14 +126,15 @@ void Utleiesteder :: flyttGjenstander() {
             case 'E': {
                 for(const auto & val : steder) {
                     if (sted1 == val.second->navn) {
+                        s1Bekreft = true;
                         if (antall > (val.second->elsparkesykler).size()) { cout << "Dette stedet har ikke nok av denne gjenstanden!\n"; }
-
                         else {
                             for (const auto& val2 : steder) {
                                 if (sted2 == val2.second->navn) {
                                     for (int i = 0; i < antall; i++) {
                                         (val2.second->elsparkesykler).push_back((val.second->elsparkesykler).front());
                                         (val.second->elsparkesykler).pop_back();
+                                        s2Bekreft = true;
                                     }
                                 }
                                 else
@@ -149,14 +150,15 @@ void Utleiesteder :: flyttGjenstander() {
             case 'S': {
                 for(const auto & val : steder) {
                     if(sted1 == val.second->navn) {
+                        s1Bekreft = true;
                         if(antall > (val.second->sykler).size()) {cout << "Dette stedet har ikke nok av denne gjenstanden!\n";}
-
                         else {
                             for(const auto & val2 : steder) {
                                 if(sted2 == val2.second->navn) {
                                     for(int i = 0; i < antall; i++) {
                                         (val2.second->sykler).push_back((val.second->sykler).front());
                                         (val.second->sykler).pop_back();
+                                        s2Bekreft = true;
                                     }
                                 }
                                 else
@@ -172,14 +174,15 @@ void Utleiesteder :: flyttGjenstander() {
             case 'T': {
                 for(const auto & val : steder) {
                     if(sted1 == val.second->navn) {
+                        s1Bekreft = true;
                         if(antall > (val.second->traller).size()) {cout << "Dette stedet har ikke nok av denne gjenstanden!\n";}
-
                         else {
                             for(const auto & val2 : steder) {
                                 if(sted2 == val2.second->navn) {
                                     for(int i = 0; i < antall; i++) {
                                         (val2.second->traller).push_back((val.second->traller).front());
                                         (val.second->traller).pop_back();
+                                        s2Bekreft = true;
                                     }
                                 }
                                 else
@@ -192,10 +195,10 @@ void Utleiesteder :: flyttGjenstander() {
                 }
             }    break;
         }
-        if (s1IngenMatch) {
+        if (s1IngenMatch && !s1Bekreft) {
             cout << "UGYLDIG SENDER" << endl;
         }
-        if (s2IngenMatch) {
+        if (s2IngenMatch && !s2Bekreft) {
             cout << "UGYLDIG MOTTAKER" << endl;
         }
     }

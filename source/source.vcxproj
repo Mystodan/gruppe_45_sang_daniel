@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <None Include="KUNDER.DTA" />
+    <None Include="STEDER.DTA" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="const.h" />

@@ -1,10 +1,5 @@
-﻿  kunder.cpp
-G:\GITLAB\gruppe45\source\kunder.cpp(231,67): warning C4018: '<': signed/unsigned mismatch
-G:\GITLAB\gruppe45\source\kunder.cpp(261,66): warning C4018: '<': signed/unsigned mismatch
-G:\GITLAB\gruppe45\source\kunder.cpp(291,74): warning C4018: '<': signed/unsigned mismatch
-  utleiesteder.cpp
-G:\GITLAB\gruppe45\source\utleiesteder.cpp(129,36): warning C4018: '>': signed/unsigned mismatch
-G:\GITLAB\gruppe45\source\utleiesteder.cpp(152,35): warning C4018: '>': signed/unsigned mismatch
-G:\GITLAB\gruppe45\source\utleiesteder.cpp(175,35): warning C4018: '>': signed/unsigned mismatch
-  Generating Code...
+﻿  utleiesteder.cpp
+G:\GITLAB\gruppe45\source\utleiesteder.cpp(130,36): warning C4018: '>': signed/unsigned mismatch
+G:\GITLAB\gruppe45\source\utleiesteder.cpp(154,35): warning C4018: '>': signed/unsigned mismatch
+G:\GITLAB\gruppe45\source\utleiesteder.cpp(178,35): warning C4018: '>': signed/unsigned mismatch
   source.vcxproj -> G:\GITLAB\gruppe45\Debug\source.exe
