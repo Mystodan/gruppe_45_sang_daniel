@@ -86,10 +86,11 @@ void nyGjenstand()  {
 }
 
 void finnGjenstand() {
-    int gjenstandNr;
-    auto kstorrelse = gKunder->kunder;
     if (gUtleiesteder->steder.size() > 0) {         //sjekker om det er blitt lagt til steder
-      gjenstandNr = lesInt("Gjenstand nummer:\t", 1, antallGjenstander);
+        int gjenstandNr;
+        auto kstorrelse = gKunder->kunder;
+        bool Funnet = false;
+        gjenstandNr = lesInt("Gjenstand nummer:\t", 1, antallGjenstander);
         for (const auto & val : gUtleiesteder->steder) {
             if ((val.second->elsparkesykler.size() + val.second->sykler.size() + val.second->traller.size()) + kstorrelse.size() > 0) {
 
@@ -97,34 +98,29 @@ void finnGjenstand() {
                     for (const auto& val2 : val.second->sykler) {
                         if (gjenstandNr == val2->gjenstandNr) {
                             cout << "Nr: " << val2->gjenstandNr << " - " << val2->Type << " \t\tSted: " << val.second->navn << endl;
-                        }
-                        else {
-                            cout << "Fant ikke gjenstanden.\n";
+                            Funnet = true;
                             return;
-                        }
-                        
+                        } 
                     }
                 };
                 if (val.second->elsparkesykler.size() > 0) {
                     for (const auto& val2 : val.second->elsparkesykler) {
                         if (gjenstandNr == val2->gjenstandNr) {
                             cout << "Nr: " << val2->gjenstandNr << " - " << val2->Type << " \t\tSted: " << val.second->navn << endl;
-                        }
-                        else {
-                            cout << "Fant ikke gjenstanden.\n";
+                            Funnet = true;
                             return;
                         }
+              
                     }
                 };
                 if (val.second->traller.size() > 0) {
                     for (const auto& val2 : val.second->traller) {
                         if (gjenstandNr == val2->gjenstandNr) {
                             cout << "Nr: " << val2->gjenstandNr << " - " << val2->Type << " \t\tSted: " << val.second->navn << endl;
-                        }
-                        else {
-                            cout << "Fant ikke gjenstanden.\n";
+                            Funnet = true;
                             return;
                         }
+                
                     }
                 };
                 if (kstorrelse.size() > 0) {
@@ -136,27 +132,30 @@ void finnGjenstand() {
                                     case 'T': {
                                         Type = "Tralle";
                                         cout << "Nr: " << val4->gjenstandNr << " - " << Type << "\t\tKunde: " << val3->navn << endl;
+                                        Funnet = true;
                                     }   break;
                                     case 'S': {
                                         Type = "Sykkel";
                                         cout << "Nr: " << val4->gjenstandNr << " - " << Type << "\t\tKunde: " << val3->navn << endl;
+                                        Funnet = true;
                                     }   break;
                                     case 'E': {
                                         Type = "Elsparkesykkel";
                                         cout << "Nr: " << val4->gjenstandNr << " - " << Type << "\t\tKunde: " << val3->navn << endl;
+                                        Funnet = true;
                                     }   break;
                                 }
                                 return;
                             }
-                            else {
-                                cout << "Fant ikke gjenstanden.\n";
-                                return;
-                            }
+                 
 
                         }
                     }
+                } 
+                if (!Funnet) {
+                    cout << "Fant ikke gjenstanden\n";
+                    return;
                 }
-                
             }
             else
             {
@@ -170,87 +169,72 @@ void finnGjenstand() {
         cout << "INGEN STEDER A HENTE GJENSTANDER FRA\n";
         return;
     }
+
 };
-
-
 
 void slettGjenstand() {
     if (gUtleiesteder->steder.size() > 0) {         //sjekker om det er blitt lagt til steder
-     
+        bool Funnet = false;
             for (const auto& val : gUtleiesteder->steder) {
                 if ((val.second->elsparkesykler.size() + val.second->sykler.size() + val.second->traller.size()) > 0) {
                     char valg = promptStart("gjenstand");
 
                     switch (valg) {
-                    case 'J': {
-                        int id = lesInt("Hvilken gjenstand(id) vil du slette?", 1, antallGjenstander);
-                        for (const auto& sjkKunder : gKunder->kunder) {
-                            if (sjkKunder->kundeGjenstander.size() > 0) {
-                                for (const auto& val2 : sjkKunder->kundeGjenstander) {
+                        case 'J': {
+                            int id = lesInt("Hvilken gjenstand(id) vil du slette?", 1, antallGjenstander);
+                            for (const auto& sjkKunder : gKunder->kunder) {
+                                if (sjkKunder->kundeGjenstander.size() > 0) {
+                                    for (const auto& val2 : sjkKunder->kundeGjenstander) {
+                                        if (id == val2->gjenstandNr) {
+                                            cout << "OBJEKTET ER HOS EN KUNDE\n";
+                                            Funnet = true;
+                                            return;
+                                        }
+                                    }
+                                }
+                            };
+                            if (val.second->traller.size() > 0) {
+                                for (const auto& val2 : val.second->traller) {
                                     if (id == val2->gjenstandNr) {
-                                        cout << "OBJEKTET ER HOS EN KUNDE\n";
-                                        return;
-                                    }
-                                    else {
-                                        cout << "OBJEKTET er allerede slettet\n";
-                                        return;
+                                        cout << "Nr: " << val2->gjenstandNr << " har blitt slettet\n";
+                                        delete val2;
+                                        val.second->traller.pop_back();
+                                        Funnet = true;
                                     }
                                 }
-                            }
-                        };
-                        if (val.second->traller.size() > 0) {
-                            for (const auto& val2 : val.second->traller) {
-                                if (id == val2->gjenstandNr) {
-                                    cout << "Nr: " << val2->gjenstandNr << " har blitt slettet\n";
-                                    delete val2;
-                                    val.second->traller.pop_back();
+                            };
+                            if (val.second->sykler.size() > 0) {
+                                for (const auto& val2 : val.second->sykler) {
+                                    if (id == val2->gjenstandNr) {
+                                        cout << "Nr: " << val2->gjenstandNr << " har blitt slettet\n";
+                                        delete val2;
+                                        val.second->sykler.pop_back();
+                                        Funnet = true;
+                                    }
                                 }
-                                else {
-                                    cout << "OBJEKTET er allerede slettet\n";
-                                    return;
+                            };
+                            if (val.second->elsparkesykler.size() > 0) {
+                                for (const auto& val2 : val.second->elsparkesykler) {
+                                    if (id == val2->gjenstandNr) {
+                                        cout << "Nr: " << val2->gjenstandNr << " har blitt slettet\n";
+                                        delete val2;
+                                        val.second->elsparkesykler.pop_back();
+                                        Funnet = true;
+                                    }
                                 }
-                            }
-                        };
-                        if (val.second->sykler.size() > 0) {
-                            for (const auto& val2 : val.second->sykler) {
-                                if (id == val2->gjenstandNr) {
-                                    cout << "Nr: " << val2->gjenstandNr << " har blitt slettet\n";
-                                    delete val2;
-                                    val.second->sykler.pop_back();
-                                }
-                                else {
-                                    cout << "OBJEKTET er allerede slettet\n";
-                                    return;
-                                }
-                            }
-                        };
-                        if (val.second->elsparkesykler.size() > 0) {
-                            for (const auto& val2 : val.second->elsparkesykler) {
-                                if (id == val2->gjenstandNr) {
-                                    cout << "Nr: " << val2->gjenstandNr << " har blitt slettet\n";
-                                    delete val2;
-                                    val.second->elsparkesykler.pop_back();
-
-                                }
-                                else {
-                                    cout << "OBJEKTET er allerede slettet\n";
-                                    return;
-                                }
-                            }
-                        };
-
-                    }break;
-                    case 'N': {
-                        promptEnd("gjenstand");
-                    } break;
+                            };
+                        }break;
+                        case 'N': {
+                            promptEnd("gjenstand");
+                        } break;
                     }
+                    if (!Funnet) {
+                        cout << "OBJEKTET er allerede slettet\n";
+                        return;
+                    }  
                     return;
                 }
-
-
-
             }
-        
     }
     else {
         cout << "SETT INN STED FORST\n";
