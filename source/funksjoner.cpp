@@ -274,7 +274,7 @@ void slettGjenstand() {
 
             }
             if (!Funnet) {
-                cout << "OBJEKTET er allerede slettet\n";
+                cout << "GJENSTANDEN er allerede slettet\n";
             }
 
     }

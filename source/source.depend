@@ -143,7 +143,7 @@
 1618764544 c:\gitlab\gruppe45\source\gjenstand.h
 	<string>
 
-1618816548 source:c:\gitlab\gruppe45\source\funksjoner.cpp
+1618816884 source:c:\gitlab\gruppe45\source\funksjoner.cpp
 	<iostream>
 	<string>
 	<vector>
@@ -201,7 +201,7 @@
 	"funksjoner.h"
 	"LesData3.h"
 
-1618813986 source:c:\gitlab\gruppe45\source\kunder.cpp
+1618817580 source:c:\gitlab\gruppe45\source\kunder.cpp
 	<list>
 	<iostream>
 	<string>
@@ -250,7 +250,7 @@
 	"LesData3.h"
 	"tralle.h"
 
-1618811481 source:c:\gitlab\gruppe45\source\utleiesteder.cpp
+1618817308 source:c:\gitlab\gruppe45\source\utleiesteder.cpp
 	<iostream>
 	<string>
 	<fstream>

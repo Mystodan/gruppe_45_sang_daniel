@@ -414,8 +414,9 @@ void Kundebase::slettKunde(){
             for (const auto & valx : kunder) {                          //  går gjennom kunder
                 if ((valx->kundeNr) == (id)) {                          //  sjekker om kundenummeret eksisterer
                     if (valx->kundeGjenstander.size() > 0) {            //  sjekker om kunden har gjenstander på seg
+                        gUtleiesteder->visAlleStedNavn();
                         cout << "Hvilket sted vil du levere gjenstandene hen?" << endl;
-                        cout << "Sted:";
+                        cout << "Sted:\t";
                         getline(cin, tilNavn);                                                          //  henter inn stednavn
                           for (const auto & valy : gUtleiesteder->steder) {                             //  går gjennom steder
                                 if (toupperS(valy.second->navn) == toupperS(tilNavn)) {
@@ -442,15 +443,19 @@ void Kundebase::slettKunde(){
                                             }
                                         delete valx;                //  sletter kunden, hvis de har gjentander
                                         kunder.remove(valx);
-                                        cout << "Kunde ble slettet!";
+                                        cout << "Gjenstandene ble overfort og kunden ble slettet!\n";
                                         return;
                                     }
+                                }
+                                else {
+                                    cout << "Vennligst velg et sted som finnes!\n";
+                                    return;
                                 }
                           }
                     }
                 delete valx;                                        //  sletter kunden, hvis de iKKE har gjenstander
                 kunder.remove(valx);
-                cout << "Kunde ble slettet!";
+                cout << "Kunde ble slettet!\n";
                 return;
                 }
             }
