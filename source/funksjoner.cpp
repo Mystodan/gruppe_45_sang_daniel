@@ -158,6 +158,7 @@ void finnGjenstand() {
 
                     }
                 };
+
                 if (kstorrelse.size() > 0) {                    //  sjekker om det finnes gjenstander på kunder
                     for (const auto& val3 : gKunder->kunder) {
                         for (const auto& val4 : val3->kundeGjenstander) {
@@ -182,14 +183,8 @@ void finnGjenstand() {
                                 }
                                 return;
                             }
-
-
                         }
                     }
-                }
-                if (!Funnet) {
-                    cout << "Fant ikke gjenstanden\n";
-                    return;
                 }
             }
             else
@@ -198,6 +193,10 @@ void finnGjenstand() {
                 return;
             }
 
+        }
+        if (!Funnet) {
+            cout << "Fant ikke gjenstanden\n";
+            return;
         }
     }
     else {

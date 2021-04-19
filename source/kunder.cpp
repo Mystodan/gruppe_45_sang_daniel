@@ -231,10 +231,8 @@ void Kundebase :: leverGjenstand() {
                             }
                         }
                     }
-                    else {
-                        return;
-                    }
                 }
+                return;
             }
         }
     }
