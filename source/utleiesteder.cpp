@@ -14,15 +14,14 @@
 using namespace std;
 extern int antallGjenstander;
 
-
 Utleiesteder :: Utleiesteder()  {         //  Initierer evt. 'Utleiesteder'
 
 }
 
+
 Utleiesteder ::  ~Utleiesteder()  {       //  Sletter alt i vectoren:
     steder.clear();
 }
-
 
 
 /**
@@ -43,7 +42,6 @@ void Utleiesteder :: nyttUtleiested(const string & nvn)  {
 }
 
 
-
 /**
 *
 *   skriver ut alle steder og deres innhold
@@ -56,9 +54,9 @@ void Utleiesteder :: visAlleSteder() const {
 
     else {
         cout << "\n\nUTLEIESTEDETS INNHOLD:\n";
-        for (const auto & val : steder) {   //går gjennom steder
+        for (const auto & val : steder) {               //  går gjennom steder
             cout << "\n\tNavn:  " << val.second->navn << ",  tlf: " << val.second->tlf << ",  tjente kr: " << val.second->tjenteKr << ",  beskrivelse: " << val.second->beskrivelse << '\n';
-            val.second->returnerAntall();   //Skriver ut antallet ledige gjenstander
+            val.second->returnerAntall();               //  Skriver ut antallet ledige gjenstander
         }
     }
 }
@@ -74,7 +72,7 @@ void Utleiesteder::visAlleStedNavn() const {
 
     else {
         cout << "\n\nUTLEIESTEDER:\n";
-        for (const auto & val : steder) //går gjennom steder
+        for (const auto & val : steder)                 //  går gjennom steder
             cout << "\tNavn:  " << val.second->navn  << '\n';
     }
 }
@@ -91,12 +89,12 @@ void Utleiesteder :: visEtSted() const {
     if(steder.empty()) {cout << "Ingen steder er lagt til!\n";}
 
     else {
-        visAlleStedNavn();      //skriver ut navnet på alle steder
+        visAlleStedNavn();                              //  skriver ut navnet på alle steder
         string navn;
         cout << "Skriv inn navn:\t";
-        getline(cin, navn);     // leser inn navn på stedet
-        for(const auto & val : steder) { //går gjennom steder
-            if(toupperS(navn) == toupperS(val.second->navn)) { //sjekker om navnet på stedet finnes
+        getline(cin, navn);                             // leser inn navn på stedet
+        for(const auto & val : steder) {                //  går gjennom steder
+            if(toupperS(navn) == toupperS(val.second->navn)) {      //  sjekker om navnet på stedet finnes
                 cout << "\tNavn:  " << val.second->navn << ",  tlf: " << val.second->tlf << ",  tjente kr: " << val.second->tjenteKr << ",  beskrivelse: " << val.second->beskrivelse << '\n';
                 return;         //  Skriver ut stedet
             }
@@ -104,7 +102,6 @@ void Utleiesteder :: visEtSted() const {
         cout << "Fant ikke sted med dette navnet!\n";
     }
 }
-
 
 
 /**
@@ -117,11 +114,10 @@ void Utleiesteder :: visTjenteKr() const {
 
     else {
         cout << "\n\nUTELEIESTEDENES TJENTE KR:\n";
-        for (const auto & val : steder)     //går gjennom steder
+        for (const auto & val : steder)         //  går gjennom steder
             cout << "\tNavn:  " << val.second->navn << ",  tjente kr: " << val.second->tjenteKr << '\n';
     }
 }
-
 
 
 /**
@@ -138,22 +134,21 @@ void Utleiesteder :: visLedigeGjenstander() const {
 
     else {
         cout << "\nLedige traller:\n";
-        for(const auto & val : steder) {              //går gjennom steder
-            val.second->skrivLedigeTraller();         //skriver ut ledige traller
+        for(const auto & val : steder) {                //    går gjennom steder
+            val.second->skrivLedigeTraller();           //    skriver ut ledige traller
         }
 
         cout << "\nLedige sykler:\n";
         for(const auto & val : steder) {
-            val.second->skrivLedigeSykler();         //skriver ut ledige sykler
+            val.second->skrivLedigeSykler();            // skriver ut ledige sykler
         }
 
         cout << "\nLedige elsparkesykler:\n";
         for(const auto & val : steder) {
-            val.second->skrivLedigeElsparkesykler();//skriver ut ledige elsparkesykler
+            val.second->skrivLedigeElsparkesykler();    //  skriver ut ledige elsparkesykler
         }
     }
 }
-
 
 
 /**
@@ -265,7 +260,6 @@ void Utleiesteder :: flyttGjenstander() {
 }
 
 
-
 /**
 *   Leser inn steder fra fil og lager steder
 */
@@ -324,7 +318,6 @@ void Utleiesteder :: skrivTilFil() {
 }
 
 
-
 /**
 *   Sletter sted fra steder - overfører gjenstander om nødvendig
 *
@@ -332,61 +325,62 @@ void Utleiesteder :: skrivTilFil() {
 *
 */
 void Utleiesteder :: slettSted() {
-    if(steder.empty()) {cout << "Ingen steder er lagt til!\n";}                 // Sjekker om steder er tomt
+    if(steder.empty()) {cout << "Ingen steder er lagt til!\n";}                             //  Sjekker om steder er tomt
 
-    else {                                                                      // Hvis steder ikke er tomt
-        char valg = promptStart("sted");                                        // Prompt start -> bekreftelse på slettSted
-        if (valg == 'J') {                                                      // Hvor J/JA
-            string navn, tilNavn;                                               // navn = sted1->navn , tilNavn = sted2->navn
+    else {                                                                                  //  Hvis steder ikke er tomt
+        char valg = promptStart("sted");                                                    //  Prompt start -> bekreftelse på slettSted
+        if (valg == 'J') {                                                                  //  Hvor J/JA
+            string navn, tilNavn;                                                           //  navn = sted1->navn , tilNavn = sted2->navn
             cout << "Hvilket sted vil du slette?"<<endl ;
-            visAlleStedNavn();                                                  // Skriver ut alle steder sine navn
+            visAlleStedNavn();                                                              //  Skriver ut alle steder sine navn
             cout << "Sted:\t";
-            getline(cin, navn);                                                 // input->fraStednavn (pseudonavn)
-            for (const auto & val : steder){                                    // iterater gjennom steder
-                if (toupperS(val.second->navn) == toupperS(navn)) {             // sjekker om input->fraStednavn finnes i steder.
-                    navn = val.second->navn;                                    // setter input->navn til å ha samme innhold som steder->navn
+            getline(cin, navn);                                                             //  input->fraStednavn (pseudonavn)
+            for (const auto & val : steder){                                                //  iterater gjennom steder
+                if (toupperS(val.second->navn) == toupperS(navn)) {                         //  sjekker om input->fraStednavn finnes i steder.
+                    navn = val.second->navn;                                                //  setter input->navn til å ha samme innhold som steder->navn
                     if ((val.second->elsparkesykler.size() + val.second->sykler.size() + val.second->traller.size()) > 0) { // Sjekker om stedet som skal slettes har gjenstander
-                            cout << "Hvilket sted vil du levere gjenstandene hen?" << endl;
-                            cout << "Sted:\t";
-                            getline(cin, tilNavn);                              // input->tilStednavn (pseudonavn)
-                        for (const auto & val2 : steder) {                      // iterater gjennom steder
-                            if (toupperS(tilNavn) == toupperS(navn)) {          // sjekker om input->tilStednavn er ekvivalent til input->fraStednavn.
+                        cout << "Hvilket sted vil du levere gjenstandene til?" << endl;
+                        cout << "Sted:\t";
+                        getline(cin, tilNavn);                                              //  input->tilStednavn (pseudonavn)
+                        for (const auto & val2 : steder) {                                  //  iterater gjennom steder
+                            if (toupperS(tilNavn) == toupperS(navn)) {                      //  sjekker om input->tilStednavn er ekvivalent til input->fraStednavn.
                                 cout << "Kan ikke overfore til et sted som skal slettes" << endl;   // feilmelding fordi duh.
-                                return;                                         // ender loop fordi duh.
+                                return;                                                     //  ender loop fordi duh.
                             }
-                            else {                                              // Hvis du velger å ikke overføre til stedet du sletter
-                                if (toupperS(val2.second->navn) == toupperS(tilNavn)) { // og stedet(input->tilSted) finnes i steder
+                            else {                                                          //  Hvis du velger å ikke overføre til stedet du sletter
+                                if (toupperS(val2.second->navn) == toupperS(tilNavn)) {     // og stedet(input->tilSted) finnes i steder
                                     tilNavn = val2.second->navn;
-                                    if (val.second->elsparkesykler.size() > 0) {// Hvis stedet har elsparkesykler
-                                        for (const auto & val3 : val2.second->elsparkesykler) // iterater om den har mer enn 1
-                                            val2.second->elsparkesykler.push_back(val.second->elsparkesykler.front()); // kopierer elsparkesykkelen fra fraStedNavn til tilStedNavn
-                                            val.second->elsparkesykler.pop_back(); //sletter elsparkesykkelen fra fraStedNavn
+                                    if (val.second->elsparkesykler.size() > 0) {                                        //  Hvis stedet har elsparkesykler
+                                        for (const auto & val3 : val2.second->elsparkesykler) {                         // iterater om den har mer enn 1
+                                            val2.second->elsparkesykler.push_back(val.second->elsparkesykler.front());  // kopierer elsparkesykkelen fra fraStedNavn til tilStedNavn
+                                            val.second->elsparkesykler.pop_back();
+                                        }                                                                               //sletter elsparkesykkelen fra fraStedNavn
                                     }
-                                    if (val.second->sykler.size() > 0) {// Hvis stedet har sykler
-                                        for (const auto & val3 : val2.second->sykler) {// iterater om den har mer enn 1
-                                            val2.second->sykler.push_back(val.second->sykler.front()); // kopierer sykler fra fraStedNavn til tilStedNavn
-                                            val.second->sykler.pop_back(); //sletter sykler fra fraStedNavn
+                                    if (val.second->sykler.size() > 0) {                                                // Hvis stedet har sykler
+                                        for (const auto & val3 : val2.second->sykler) {                                 // iterater om den har mer enn 1
+                                            val2.second->sykler.push_back(val.second->sykler.front());                  // kopierer sykler fra fraStedNavn til tilStedNavn
+                                            val.second->sykler.pop_back();                                              //sletter sykler fra fraStedNavn
                                         }
                                     }
-                                    if (val.second->traller.size() > 0) {// Hvis stedet har traller
-                                        for (const auto & val3 : val2.second->traller) {// iterater om den har mer enn 1
-                                            val2.second->traller.push_back(val.second->traller.front()); // kopierer traller fra fraStedNavn til tilStedNavn
-                                            val.second->traller.pop_back(); //sletter traller fra fraStedNavn
+                                    if (val.second->traller.size() > 0) {                                               // Hvis stedet har traller
+                                        for (const auto & val3 : val2.second->traller) {                                // iterater om den har mer enn 1
+                                            val2.second->traller.push_back(val.second->traller.front());                // kopierer traller fra fraStedNavn til tilStedNavn
+                                            val.second->traller.pop_back();                                             //sletter traller fra fraStedNavn
                                         }
                                     }
-                                    cout << '\n' << "Sletting fullfort!\n"; // dokumenterer sletting
-                                    delete steder[navn]; // sletter steder(med identifier)
-                                    steder.erase(navn);  // fjerner steder fra map
-                                    return;              // ender loop
+                                    cout << '\n' << "Sletting fullfort!\n";     // dokumenterer sletting
+                                    delete steder[navn];                        // sletter steder(med identifier)
+                                    steder.erase(navn);                         // fjerner steder fra map
+                                    return;                                     // ender loop
                                 }
                             }
                         }
                     }
                     else {
-                        cout << '\n' << "Sletting fullfort!\n";// dokumenterer sletting
-                        delete steder[navn];    // sletter steder(med identifier)
-                        steder.erase(navn);     // fjerner steder fra map
-                        return;                 // ender loop
+                        cout << '\n' << "Sletting fullfort!\n";                 // dokumenterer sletting
+                        delete steder[navn];                                    // sletter steder(med identifier)
+                        steder.erase(navn);                                     // fjerner steder fra map
+                        return;                                                 // ender loop
                    }
                 }
             }

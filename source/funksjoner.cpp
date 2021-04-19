@@ -74,12 +74,13 @@ void nyGjenstand()  {
     if (gUtleiesteder->steder.size() > 0) { //sjekker om steder er lagt til
         string stdnvn;
         char type;
+        bool sbekreft = false, sIngenMatch = false;
         gUtleiesteder->visAlleStedNavn();   // Skriver ut alle steder
         cout << "\nHvilket eksisterende sted vil du putte gjenstanden?\t";
         getline(cin, stdnvn);               // henter inn sted
         for (const auto & val : gUtleiesteder->steder) {
             if ((toupperS(stdnvn) == toupperS(val.second->navn))) { // sjekker om sted finnes
-
+                sbekreft = true;
                 type = lesChar("\nHvilke Gjenstand? S - Sykkel, E - Elsparkesykkel, T - Tralle \t");
                 int antall = lesInt("Hvor mange gjenstander vil du legge til?", 1, 1000);
 
@@ -101,12 +102,17 @@ void nyGjenstand()  {
                 }
             }
             else {
-                cout << "SKRIV INN GYLDIG STED\n";
+                sIngenMatch = true;
+
             }
+        }
+        if (!sbekreft && sIngenMatch) {
+            cout << "SETT INN GYLDIG STED\n";
         }
     }
     else {
         cout << "SETT INN STED FORST\n";
+
     }
 }
 
@@ -115,49 +121,49 @@ void nyGjenstand()  {
 * Finner gjenstand
 */
 void finnGjenstand() {
-    if (gUtleiesteder->steder.size() > 0) {         //sjekker om det er blitt lagt til steder
+    if (gUtleiesteder->steder.size() > 0) {                     //  sjekker om det er blitt lagt til steder
         int gjenstandNr;
-        auto kstorrelse = gKunder->kunder;          // sjekker størrelse på kundeliste
-        bool Funnet = false;                        // sjekker om gjenstanden er funnet
+        auto kstorrelse = gKunder->kunder;                      //  sjekker størrelse på kundeliste
+        bool Funnet = false;                                    //  sjekker om gjenstanden er funnet
         gjenstandNr = lesInt("Gjenstand nummer:\t", 1, antallGjenstander);
-        for (const auto & val : gUtleiesteder->steder) {    // går gjennom steder
+        for (const auto & val : gUtleiesteder->steder) {        //  går gjennom steder
             if ((val.second->elsparkesykler.size() + val.second->sykler.size() + val.second->traller.size()) + kstorrelse.size() > 0) {
-                        // sjekker om det finnes gjentsander på steder
-                if (val.second->sykler.size() > 0) {    // finner sykler
+                                                                //  sjekker om det finnes gjentsander på steder
+                if (val.second->sykler.size() > 0) {            //  finner sykler
                     for (const auto& val2 : val.second->sykler) {
                         if (gjenstandNr == val2->gjenstandNr) {
                             cout << "Nr: " << val2->gjenstandNr << " - " << val2->Type << " \t\tSted: " << val.second->navn << endl;
-                            Funnet = true;  // funnet sykler
+                            Funnet = true;                      //  funnet sykler
                             return;
                         }
                     }
                 };
-                if (val.second->elsparkesykler.size() > 0) {  // finner elsparkesykler
+                if (val.second->elsparkesykler.size() > 0) {    //  finner elsparkesykler
                     for (const auto& val2 : val.second->elsparkesykler) {
                         if (gjenstandNr == val2->gjenstandNr) {
                             cout << "Nr: " << val2->gjenstandNr << " - " << val2->Type << " \t\tSted: " << val.second->navn << endl;
-                            Funnet = true;  // funnet elsparkesykler
+                            Funnet = true;                      //  funnet elsparkesykler
                             return;
                         }
 
                     }
                 };
-                if (val.second->traller.size() > 0) {       // finner traller
+                if (val.second->traller.size() > 0) {           //  finner traller
                     for (const auto& val2 : val.second->traller) {
                         if (gjenstandNr == val2->gjenstandNr) {
                             cout << "Nr: " << val2->gjenstandNr << " - " << val2->Type << " \t\tSted: " << val.second->navn << endl;
-                            Funnet = true;  // funnet traller
+                            Funnet = true;                      //  funnet traller
                             return;
                         }
 
                     }
                 };
-                if (kstorrelse.size() > 0) {    // sjekker om det finnes gjenstander på kunder
+                if (kstorrelse.size() > 0) {                    //  sjekker om det finnes gjenstander på kunder
                     for (const auto& val3 : gKunder->kunder) {
                         for (const auto& val4 : val3->kundeGjenstander) {
                             if (val4->gjenstandNr == gjenstandNr) {
                                 std::string Type;
-                                switch (val4->gjenstandType) {  // skriver ut gjenstander basert på type
+                                switch (val4->gjenstandType) {  //  skriver ut gjenstander basert på type
                                     case 'T': {
                                         Type = "Tralle";
                                         cout << "Nr: " << val4->gjenstandNr << " - " << Type << "\t\tKunde: " << val3->navn << endl;
@@ -203,6 +209,7 @@ void finnGjenstand() {
 
 
 
+
 /**
 * Sletter gjenstander
 *
@@ -210,13 +217,12 @@ void finnGjenstand() {
 void slettGjenstand() {
     if (gUtleiesteder->steder.size() > 0) {         //sjekker om det er blitt lagt til steder
         bool Funnet = false;                     // sjekker om gjenstanden eksisterer
+        char valg = promptStart("gjenstand");          // sjekker om det finnet gjenstander på stedene
+        int id = lesInt("Hvilken gjenstand(id) vil du slette?", 1, antallGjenstander);
             for (const auto& val : gUtleiesteder->steder) { // går gjennom steder
                 if ((val.second->elsparkesykler.size() + val.second->sykler.size() + val.second->traller.size()) > 0) {
-                    char valg = promptStart("gjenstand");          // sjekker om det finnet gjenstander på stedene
-
                     switch (valg) {             // bekreftelse på sletting av gjenstand
                         case 'J': {
-                            int id = lesInt("Hvilken gjenstand(id) vil du slette?", 1, antallGjenstander);
                             for (const auto& sjkKunder : gKunder->kunder) {
                                 if (sjkKunder->kundeGjenstander.size() > 0) {
                                     for (const auto& val2 : sjkKunder->kundeGjenstander) {
@@ -232,8 +238,8 @@ void slettGjenstand() {
                                 for (const auto& val2 : val.second->traller) {
                                     if (id == val2->gjenstandNr) {  // sjekker trallen som blir slettet
                                         cout << "Nr: " << val2->gjenstandNr << " har blitt slettet\n";
-                                        delete val2;
                                         val.second->traller.pop_back();
+                                        delete val2;
                                         Funnet = true;              // finner gjenstand som blir slettet
                                     }
                                 }
@@ -242,8 +248,8 @@ void slettGjenstand() {
                                 for (const auto& val2 : val.second->sykler) {
                                     if (id == val2->gjenstandNr) {  // sjekker sykler som blir slettet
                                         cout << "Nr: " << val2->gjenstandNr << " har blitt slettet\n";
-                                        delete val2;
                                         val.second->sykler.pop_back();
+                                        delete val2;
                                         Funnet = true;              // finner gjenstand som blir slettet
                                     }
                                 }
@@ -252,8 +258,8 @@ void slettGjenstand() {
                                 for (const auto& val2 : val.second->elsparkesykler) {
                                     if (id == val2->gjenstandNr) {          // sjekker elsparkesykler som blir slettet
                                         cout << "Nr: " << val2->gjenstandNr << " har blitt slettet\n";
-                                        delete val2;
                                         val.second->elsparkesykler.pop_back();
+                                        delete val2;
                                         Funnet = true;              // finner gjenstand som blir slettet
                                     }
                                 }
@@ -263,17 +269,19 @@ void slettGjenstand() {
                             promptEnd("gjenstand"); //ingen gjenstander blir slettet
                         } break;
                     }
-                    if (!Funnet) {
-                        cout << "OBJEKTET er allerede slettet\n";
-                        return;
-                    }
-                    return;
+
                 }
+
             }
+            if (!Funnet) {
+                cout << "OBJEKTET er allerede slettet\n";
+            }
+
     }
     else {
         cout << "SETT INN STED FORST\n";
     }
+
 }
 
 

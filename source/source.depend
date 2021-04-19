@@ -129,7 +129,7 @@
 	"LesData3.h"
 	"funksjoner.h"
 
-1618764487 source:c:\gitlab\gruppe45\source\elsparkesykkel.cpp
+1618810567 source:c:\gitlab\gruppe45\source\elsparkesykkel.cpp
 	<iostream>
 	<string>
 	"LesData3.h"
@@ -137,13 +137,13 @@
 
 1618512782 c:\gitlab\gruppe45\source\lesdata3.h
 
-1618764511 c:\gitlab\gruppe45\source\elsparkesykkel.h
+1618810567 c:\gitlab\gruppe45\source\elsparkesykkel.h
 	"gjenstand.h"
 
 1618764544 c:\gitlab\gruppe45\source\gjenstand.h
 	<string>
 
-1618780043 source:c:\gitlab\gruppe45\source\funksjoner.cpp
+1618816548 source:c:\gitlab\gruppe45\source\funksjoner.cpp
 	<iostream>
 	<string>
 	<vector>
@@ -187,7 +187,7 @@
 
 1618760124 c:\gitlab\gruppe45\source\funksjoner.h
 
-1618764471 source:c:\gitlab\gruppe45\source\gjenstand.cpp
+1618810567 source:c:\gitlab\gruppe45\source\gjenstand.cpp
 	<iostream>
 	<string>
 	"gjenstand.h"
@@ -201,7 +201,7 @@
 	"funksjoner.h"
 	"LesData3.h"
 
-1618782940 source:c:\gitlab\gruppe45\source\kunder.cpp
+1618813986 source:c:\gitlab\gruppe45\source\kunder.cpp
 	<list>
 	<iostream>
 	<string>
@@ -222,7 +222,7 @@
 	<cstdlib>
 	"LesData3.h"
 
-1618760093 source:c:\gitlab\gruppe45\source\source.cpp
+1618802164 source:c:\gitlab\gruppe45\source\source.cpp
 	<iostream>
 	"kunder.h"
 	"utleiesteder.h"
@@ -230,7 +230,7 @@
 	"gjenstand.h"
 	"LesData3.h"
 
-1618759491 source:c:\gitlab\gruppe45\source\sted.cpp
+1618810567 source:c:\gitlab\gruppe45\source\sted.cpp
 	<iostream>
 	<string>
 	<fstream>
@@ -238,19 +238,19 @@
 	"utleiesteder.h"
 	"sted.h"
 
-1618764607 source:c:\gitlab\gruppe45\source\sykkel.cpp
+1618810567 source:c:\gitlab\gruppe45\source\sykkel.cpp
 	<iostream>
 	<string>
 	"LesData3.h"
 	"sykkel.h"
 
-1618764613 source:c:\gitlab\gruppe45\source\tralle.cpp
+1618810567 source:c:\gitlab\gruppe45\source\tralle.cpp
 	<iostream>
 	<string>
 	"LesData3.h"
 	"tralle.h"
 
-1618782924 source:c:\gitlab\gruppe45\source\utleiesteder.cpp
+1618811481 source:c:\gitlab\gruppe45\source\utleiesteder.cpp
 	<iostream>
 	<string>
 	<fstream>

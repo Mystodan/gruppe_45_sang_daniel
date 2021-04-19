@@ -37,12 +37,12 @@ Kundebase ::  ~Kundebase()  {       //  Sletter alt i vectoren:
 *
 */
 void Kundebase :: nyKunde(const string & nvn)  {
-    Kunde* nyKunde = new Kunde();              // Nytt objekt og allokerer minne
-    nyKunde->navn = nvn;                       // Setter navn til kunde
-    nyKunde->kundeNr = ++sisteKundeNr;         // Setter kunde nr.
-    nyKunde->lesData();                        // kaller til lesData
-    kunder.push_back(nyKunde);                 // pusher nytt objekt bakers i array
-    kunder.sort([](const Kunde* k1, const Kunde* k2) {return (k1->navn) < (k2->navn);}); //sorterer kunder etter alfabetisk rekkefølge
+    Kunde* nyKunde = new Kunde();                                                           //  Nytt objekt og allokerer minne
+    nyKunde->navn = nvn;                                                                    //  Setter navn til kunde
+    nyKunde->kundeNr = ++sisteKundeNr;                                                      //  Setter kunde nr.
+    nyKunde->lesData();                                                                     //  kaller til lesData
+    kunder.push_back(nyKunde);                                                              //  pusher nytt objekt bakers i array
+    kunder.sort([](const Kunde* k1, const Kunde* k2) {return (k1->navn) < (k2->navn);});    //  sorterer kunder etter alfabetisk rekkefølge
 }
 
 
@@ -52,20 +52,20 @@ void Kundebase :: nyKunde(const string & nvn)  {
 *
 */
 void Kundebase :: visAlleKunder() const {
-    int teller = 0;        //deklarasjoner
+    int teller = 0;                                                 //  deklarasjoner
     string stop = "";
 
-    if(kunder.empty()) {cout << "Ingen kunder er lagt til!\n";} //Sjekker om kundelisten er tom
+    if(kunder.empty()) {cout << "Ingen kunder er lagt til!\n";}     //  Sjekker om kundelisten er tom
 
     else {
         cout << "\n\nKUNDEBASENS INNHOLD:\n";
-        for (const auto & val : kunder) {        // Skriver ut alle kunder
-            if(teller % 20 == 0 && teller > 0) { // Stanser etter hver tjuende kunde
+        for (const auto & val : kunder) {                           //  Skriver ut alle kunder
+            if(teller % 20 == 0 && teller > 0) {                    //  Stanser etter hver tjuende kunde
                 cout << "Trykk paa en tast for aa fortsette aa skrive ut";
-                getline(cin, stop);              //Tastetrykk starter utskriften av kunder
+                getline(cin, stop);                                 //  Tastetrykk starter utskriften av kunder
             }
             cout << "\tNavn:  " << val->navn << ",  tlf: " << val->tlf << ",  kundeNR: " << val->kundeNr << ",  laante gjenstander: " << (val->kundeGjenstander).size() << '\n';
-            teller++;  //iterator
+            teller++;                                               //  iterator
         }
 
     }
@@ -78,15 +78,15 @@ void Kundebase :: visAlleKunder() const {
 *
 */
 void Kundebase :: visEnKunde() const {
-    if(kunder.empty()) {cout << "Ingen kunder er lagt til!\n";} //Sjekker om kundelisten er tom
+    if(kunder.empty()) {cout << "Ingen kunder er lagt til!\n";}     //  Sjekker om kundelisten er tom
 
     else {
-        int nr;     //deklarasjon
-        cout << "Skriv inn nr:\t"; //Henter kundenummer input
+        int nr;                                                     //  deklarasjon
+        cout << "Skriv inn nr:\t";                                  //  Henter kundenummer input
         cin >> nr;
         for(const auto & val : kunder) {
             if(nr == val->kundeNr) {cout << "\tNavn:  " << val->navn << ",  tlf: " << val->tlf << ",  kundeNR: " << val->kundeNr << ",  laante gjenstander: " << (val->kundeGjenstander).size() << '\n';}
-        } //iterator gjennom kunderlisten, finner og skriver ut kunden tilsvarende kundenummeret
+        }                                                           //  iterator gjennom kunderlisten, finner og skriver ut kunden tilsvarende kundenummeret
     }
 }
 
@@ -98,8 +98,8 @@ void Kundebase :: visEnKunde() const {
 *
 */
 void Kundebase :: lesFraFil() {
-    ifstream innfil;           // Fil objekt for innlesing
-    innfil.open("KUNDER.DTA"); // tilknytter aktuell fil å lese fra
+    ifstream innfil;                //  Fil objekt for innlesing
+    innfil.open("KUNDER.DTA");      //  Tilknytter aktuell fil å lese fra
     Kunde* nyKunde = nullptr;
     int sisteKNr, antallT1, antallT2, antallS1, antallS2, antallE1, antallE2;
 
@@ -110,9 +110,9 @@ void Kundebase :: lesFraFil() {
             nyKunde = new Kunde(innfil);            //  Lager ny kunde med data fra filen
             nyKunde->kundeNr = ++sisteKundeNr;
             kunder.push_back(nyKunde);
-            kunder.sort([](const Kunde* k1, const Kunde* k2) {return (k1->navn) < (k2->navn);});  //sorterer kunder etter alfabetisk rekkefølge
+            kunder.sort([](const Kunde* k1, const Kunde* k2) {return (k1->navn) < (k2->navn);});  //    sorterer kunder etter alfabetisk rekkefølge
 
-            innfil >> antallT1 >> antallT2 >> antallS1 >> antallS2 >> antallE1 >> antallE2;       //leser inn antall gjenstander av hver type
+            innfil >> antallT1 >> antallT2 >> antallS1 >> antallS2 >> antallE1 >> antallE2;       //    leser inn antall gjenstander av hver type
 
             for(int i = 0; i < antallT1; i++) {      // Lager X antall traller uten strop og pusher inn i kundens gjenstander
                 Tralle* nyTralle = new Tralle(++antallGjenstander, 'T', false);
@@ -160,18 +160,18 @@ void Kundebase :: lesFraFil() {
 *
 */
 void Kundebase :: skrivTilFil() {
-    ofstream utfil("KUNDER.DTA");               //  Åpner aktuell fil.
+    ofstream utfil("KUNDER.DTA");                           //  Åpner aktuell fil.
 
     cout << "\nSkriver til filen 'KUNDER.DTA' .....\n\n";
 
-    utfil << sisteKundeNr;                      //  Skriver siste brukte gjenstandsnummer.
+    utfil << sisteKundeNr;                                  //  Skriver siste brukte gjenstandsnummer.
 
-    for(const auto & val : kunder) {            //  Går gjennom kunder
-        utfil << '\n' << val->navn << " " << val->tlf;  // Leser inn kundenavn og tlf.
+    for(const auto & val : kunder) {                        //  Går gjennom kunder
+        utfil << '\n' << val->navn << " " << val->tlf;      // Leser inn kundenavn og tlf.
 
-        int antallT1, antallT2, antallS1, antallS2, antallE1, antallE2; //  Antall av hver type gjenstand
+        int antallT1, antallT2, antallS1, antallS2, antallE1, antallE2;     //  Antall av hver type gjenstand
         antallT1 = antallT2 = antallS1 = antallS2 = antallE1 = antallE2 = 0;
-        for(const auto & val2 : val->kundeGjenstander) {                // Teller antall av hver type
+        for(const auto & val2 : val->kundeGjenstander) {                    // Teller antall av hver type
             if(val2->gjenstandType == 'T' && val2->har==0)      {antallT1++;}
             if(val2->gjenstandType == 'S' && val2->har==0)      {antallS1++;}
             if(val2->gjenstandType == 'E' && val2->watt==100)   {antallE1++;}
@@ -194,10 +194,10 @@ void Kundebase :: skrivTilFil() {
 *
 */
 void Kundebase :: leverGjenstand() {
-    if(kunder.empty()) {cout << "Ingen kunder er lagt til!\n";} //Sjekker om kundelisten er tom
+    if(kunder.empty()) {cout << "Ingen kunder er lagt til!\n";}             //  Sjekker om kundelisten er tom
 
     else {
-        int kundeNr; // deklarasjon
+        int kundeNr;                                                        // deklarasjon
         string sted;
 
         kundeNr = lesInt("Hvilken kunde skal levere gjenstandene sine?", 1, sisteKundeNr);
@@ -206,9 +206,9 @@ void Kundebase :: leverGjenstand() {
         cout << "Stednavn:\t";
         getline(cin, sted);
 
-        for (const auto& val : kunder) {    //Går gjennom alle kunder
-            if (kundeNr == val->kundeNr) {  // sjekker om input av kundenummere eksisterer
-                for (const auto & val2 : gUtleiesteder->steder) {   //  Går gjennom utleiesteder
+        for (const auto& val : kunder) {                                    //  Går gjennom alle kunder
+            if (kundeNr == val->kundeNr) {                                  //  sjekker om input av kundenummere eksisterer
+                for (const auto & val2 : gUtleiesteder->steder) {           //  Går gjennom utleiesteder
                     if (toupperS(val2.second->navn) == toupperS(sted)) {    //  sjekker om utleiesteder eksisterer
                         sted = val2.second->navn;
                         for (const auto & val3 : val->kundeGjenstander) {   //  Går gjennom kundegjenstander
@@ -216,7 +216,7 @@ void Kundebase :: leverGjenstand() {
                                 val2.second->traller.push_back(new Tralle(val3->gjenstandNr,'T'));
                                 (val->kundeGjenstander).pop_back();         //   Flytter tralle fra kunde til sted
                                 delete val3;
-                        }
+                            }
 
                             if(val3->gjenstandType == 'S') {
                                 val2.second->sykler.push_back(new Sykkel(val3->gjenstandNr,'S'));
@@ -232,7 +232,6 @@ void Kundebase :: leverGjenstand() {
                         }
                     }
                     else {
-                        cout << "Dette stedet eksisterer ikke!\n";
                         return;
                     }
                 }
@@ -243,12 +242,13 @@ void Kundebase :: leverGjenstand() {
 
 
 
+
 /**
 * Henter gjenstand fra sted til kunde
 *
 */
 void Kundebase :: hentGjenstand() {
-    if(gKunder->kunder.empty()) {cout << "Ingen kunder er lagt til!\n";} //Sjekker om kundelisten er tom
+    if(gKunder->kunder.empty()) {cout << "Ingen kunder er lagt til!\n";}    //  Sjekker om kundelisten er tom
 
     else {
         int kundeNr, antall;
@@ -256,93 +256,96 @@ void Kundebase :: hentGjenstand() {
         string sted;
         bool kIngenMatch = false, sIngenMatch = false, sBekreft = false, kBekreft = false;
 
-        kundeNr = lesInt("Hvilken kunde skal laane en gjenstand?", 1, sisteKundeNr);    // Leser inn kundenummer
-        while(!((type == 'T') || (type == 'S')|| (type == 'E'))) {type = lesChar("Hvilken type gjenstand vil du flytte? (E, S, T)");} // leser inn antall og sted
-        antall = lesInt("Hvor mange av denne gjenstanden vil kunden laane?", 0, 100);
+        kundeNr = lesInt("Hvilken kunde skal laane en gjenstand?", 1, sisteKundeNr);                                                    //  Leser inn kundenummer
+        while(!((type == 'T') || (type == 'S')|| (type == 'E'))) {type = lesChar("Hvilken type gjenstand vil du flytte? (E, S, T)");}   //  leser inn antall og sted
+        antall = lesInt("Hvor mange av denne gjenstanden vil kunden laane?", 1, 100);
         cout << "Hvilket sted vil kunden laane fra?\t";
         gUtleiesteder->visAlleStedNavn();
         cout << "Stednavn:\t";
         getline(cin, sted);
 
-        switch (type) { // tilfeller basert på gjenstands type
+        switch (type) {                                                             //  tilfeller basert på gjenstands type
             case 'T': {
-                for (const auto & val : gKunder->kunder) { // Sjekker om kundene eksisterer
+                for (const auto & val : gKunder->kunder) {                          //  Sjekker om kundene eksisterer
                     if (kundeNr == val->kundeNr) {
-                        for (const auto & val2 : gUtleiesteder->steder) { // Sjekker om stedet eksisterer
+                        kBekreft = true;
+                        for (const auto & val2 : gUtleiesteder->steder) {           // Sjekker om stedet eksisterer
                             if (toupperS(val2.second->navn) == toupperS(sted)) {
-                                sBekreft = true;           // Stedet eksisterer
+                                sBekreft = true;                                    // Stedet eksisterer
                                 sted = val2.second->navn;
                                 if ((val2.second->traller).size() < antall) { cout << "Det er ikke nok traller paa dette stedet!\n"; }
-                                        // Sjekker om det er nok traller til stedet
+                                                                                    // Sjekker om det er nok traller til stedet
                                 else {
-                                    for (int i = 0; i < antall; i++) { // overfører antall traller til kunden
+                                    for (int i = 0; i < antall; i++) {              // overfører antall traller til kunden
                                         auto val3 = val2.second->traller;
                                         val2.second->tjenteKr += PRISTRALLE;
                                         ((val3).back())->lesData();
                                         val->kundeGjenstander.push_back((val3).back());
                                         (val2.second->traller).pop_back();
-                                        sBekreft = true;
+                                        cout << val->navn << " har na laant " << antall << ": tralle(r)"<<endl;
                                     }
                                 }
                             }
                             else {
-                                sIngenMatch = true; //Stedet eksisterer ikke
+                                sIngenMatch = true;     //  Stedet eksisterer ikke
                             }
                         }
                     }
                     else
                     {
-                        kIngenMatch = true; //Kunden eksisterer ikke
+                        kIngenMatch = true;             //  Kunden eksisterer ikke
                     }
                 }
             }   break;
 
             case 'S': {
-                for (const auto& val : gKunder->kunder) {   // Sjekker om kundene eksisterer
+                for (const auto& val : gKunder->kunder) {                       //  Sjekker om kundene eksisterer
                     if (kundeNr == val->kundeNr) {
-                        for (const auto & val2 : gUtleiesteder->steder) {   // Sjekker om stedet eksisterer
+                        kBekreft = true;                                        //  Stedet eksisterer
+                        for (const auto & val2 : gUtleiesteder->steder) {       //  Sjekker om stedet eksisterer
                             if (toupperS(val2.second->navn) == toupperS(sted)) {
-                                kBekreft = true;            // Stedet eksisterer
+                                sBekreft = true;
                                 sted = val2.second->navn;
                                 if ((val2.second->sykler).size() < antall) { cout << "Det er ikke nok sykler paa dette stedet!\n"; }
-                                            // Sjekker om det er nok sykler til stedet
+                                                                                //  Sjekker om det er nok sykler til stedet
                                 else {
-                                    for (int i = 0; i < antall; i++) { // overfører antall sykler til kunden
+                                    for (int i = 0; i < antall; i++) {          //  overfører antall sykler til kunden
                                         auto val3 = val2.second->sykler;
                                         val2.second->tjenteKr += PRISSYKKEL;
                                         ((val3).back())->lesData();
                                         val->kundeGjenstander.push_back((val3).back());
                                         (val2.second->sykler).pop_back();
-                                        sBekreft = true;
+                                        cout << val->navn << " har na laant " << antall << ": sykkel(er)" << endl;
                                     }
                                 }
                             }
                             else {
-                                sIngenMatch = true; //Stedet eksisterer ikke
+                                sIngenMatch = true;         //  Stedet eksisterer ikke
                             }
                         }
                     }
                     else
                     {
-                        kIngenMatch = true; //Kunden eksisterer ikke
+                        kIngenMatch = true;                 //  Kunden eksisterer ikke
                     }
                 }
             }   break;
 
             case 'E': {
-                for (const auto& val : gKunder->kunder) {   // Sjekker om kundene eksisterer
+                for (const auto& val : gKunder->kunder) {   //  Sjekker om kundene eksisterer
                     if (kundeNr == val->kundeNr) {
-                        for (const auto & val2 : gUtleiesteder->steder) {   // Sjekker om stedet eksisterer
+                        kBekreft = true;
+                        for (const auto & val2 : gUtleiesteder->steder) {                           //  Sjekker om stedet eksisterer
                             if (toupperS(val2.second->navn) == toupperS(sted)) {
-                                sBekreft = true;            // Stedet eksisterer
+                                sBekreft = true;                                                    //  Stedet eksisterer
                                 sted = val2.second->navn;
                                 if ((val2.second->elsparkesykler).size() < antall) { cout << "Det er ikke nok elsparkesykler paa dette stedet!\n"; }
-                                                // Sjekker om det er nok elsparkeykler til stedet
+                                                                                                    //  Sjekker om det er nok elsparkeykler til stedet
                                 else {
-                                    for (int i = 0; i < antall; i++) {  // overfører antall elsparkesykler til kunden
+                                    for (int i = 0; i < antall; i++) {                              //  overfører antall elsparkesykler til kunden
                                         ((val2.second->elsparkesykler).back())->lesData();
 
-                                        switch (((val2.second->elsparkesykler).back())->watt) { // Sjekker type watt
+                                        switch (((val2.second->elsparkesykler).back())->watt) {     // Sjekker type watt
                                             case 100: {val2.second->tjenteKr += PRIS100W;}   break;
 
                                             case 200: {val2.second->tjenteKr += PRIS200W;}   break;
@@ -350,17 +353,18 @@ void Kundebase :: hentGjenstand() {
 
                                         val->kundeGjenstander.push_back((val2.second->elsparkesykler).back());
                                         (val2.second->elsparkesykler).pop_back();
+                                        cout << val->navn << " har na laant " << antall << ": elsparkesykkel(er)" << endl;
                                     }
                                 }
                             }
                             else {
-                                sIngenMatch = true; //Stedet eksisterer ikke
+                                sIngenMatch = true;     //  Stedet eksisterer ikke
                             }
                         }
                     }
                     else
                     {
-                        kIngenMatch = true; //Kunden eksisterer ikke
+                        kIngenMatch = true;             //   eksisterer ikke
                     }
                 }
             }   break;
@@ -382,12 +386,12 @@ void Kundebase :: hentGjenstand() {
 *
 */
 void Kundebase::visKundeID() const {
-    if (kunder.empty()) { cout << "Ingen kunder er lagt til!\n"; } //Sjekker om kundelisten er tom
+    if (kunder.empty()) { cout << "Ingen kunder er lagt til!\n"; }                          //  Sjekker om kundelisten er tom
 
     else {
         cout << "\n\nKUNDEBASENS INNHOLD:\n";
-        for (const auto& val : kunder)  // går gjennom kunder
-            cout << "\tKundeNR:  " << val->kundeNr << ",  navn: " << val->navn << '\n'; //skriver ut kundenummer
+        for (const auto& val : kunder)                                                      // går gjennom kunder
+            cout << "\tKundeNR:  " << val->kundeNr << ",  navn: " << val->navn << '\n';     //  skriver ut kundenummer
     }
 }
 
@@ -398,45 +402,45 @@ void Kundebase::visKundeID() const {
 */
 void Kundebase::slettKunde(){
 
-    if (kunder.empty()) { cout << "Ingen steder er lagt til!\n"; }  //Sjekker om kundelisten er tom
+    if (kunder.empty()) { cout << "Ingen steder er lagt til!\n"; }  //  Sjekker om kundelisten er tom
     else {
         char valg = promptStart("kunde");
         if (valg == 'J') {
-            int id;     //deklarasjon
+            int id;                                                 //  deklarasjon
             string tilNavn;
             cout << "Hvilken kunde vil du slette?" << endl;
             visKundeID();
-            id = lesInt("KundeNR:", 1, sisteKundeNr); //leser inn kunde id
-            for (const auto& valx : kunder) {       // går gjennom kunder
-                if ((valx->kundeNr) == (id)) {      // sjekker om kundenummeret eksisterer
-                    if (valx->kundeGjenstander.size() > 0) {    // sjekker om kunden har gjenstander på seg
+            id = lesInt("KundeNR:", 1, sisteKundeNr);                   //  leser inn kunde id
+            for (const auto & valx : kunder) {                          //  går gjennom kunder
+                if ((valx->kundeNr) == (id)) {                          //  sjekker om kundenummeret eksisterer
+                    if (valx->kundeGjenstander.size() > 0) {            //  sjekker om kunden har gjenstander på seg
                         cout << "Hvilket sted vil du levere gjenstandene hen?" << endl;
                         cout << "Sted:";
-                        getline(cin, tilNavn);      // henter inn stednavn
-                          for (const auto& valy : gUtleiesteder->steder) { //går gjennom steder
+                        getline(cin, tilNavn);                                                          //  henter inn stednavn
+                          for (const auto & valy : gUtleiesteder->steder) {                             //  går gjennom steder
                                 if (toupperS(valy.second->navn) == toupperS(tilNavn)) {
-                                    tilNavn = valy.second->navn;    // sjekker om stedet finnes
-                                    if (valx->kundeGjenstander.size() > 0) {    // Sjekker om kunden har gjentander igjen
-                                            for (const auto& valx2 : valx->kundeGjenstander) {  // går gjennom kundenes gjenstander
+                                    tilNavn = valy.second->navn;                                        //  sjekker om stedet finnes
+                                    if (valx->kundeGjenstander.size() > 0) {                            //  Sjekker om kunden har gjentander igjen
+                                            for (const auto & valx2 : valx->kundeGjenstander) {         // går gjennom kundenes gjenstander
                                                 switch (valx2->gjenstandType) {
-                                                    case 'T': {     // leverer  traller til sted
+                                                    case 'T': {     //  leverer  traller til sted
                                                         valy.second->traller.push_back(new Tralle(valx2->gjenstandNr, 'T'));
                                                         (valx->kundeGjenstander).pop_back();
                                                         delete valx2;
-                                                    }break;
-                                                    case 'S': {     // leverer sykler til sted
+                                                    }   break;
+                                                    case 'S': {     //  leverer sykler til sted
                                                         valy.second->sykler.push_back(new Sykkel(valx2->gjenstandNr, 'S'));
                                                         (valx->kundeGjenstander).pop_back();
                                                         delete valx2;
-                                                    }break;
-                                                    case 'E': {     // leverer elsparkesykler til sted
+                                                    }   break;
+                                                    case 'E': {     //  leverer elsparkesykler til sted
                                                         valy.second->elsparkesykler.push_back(new Elsparkesykkel(valx2->gjenstandNr, 'E'));
                                                         (valx->kundeGjenstander).pop_back();
                                                         delete valx2;
-                                                    }break;
+                                                    }   break;
                                                 }
                                             }
-                                        delete valx;    // sletter kunden, hvis de har gjentander
+                                        delete valx;                //  sletter kunden, hvis de har gjentander
                                         kunder.remove(valx);
                                         cout << "Kunde ble slettet!";
                                         return;
@@ -444,20 +448,15 @@ void Kundebase::slettKunde(){
                                 }
                           }
                     }
-                delete valx;    // sletter kunden, hvis de iKKE har gjenstander
+                delete valx;                                        //  sletter kunden, hvis de iKKE har gjenstander
                 kunder.remove(valx);
                 cout << "Kunde ble slettet!";
                 return;
                 }
-                else {
-                    cout << "Ikke en registrert kunde!"<< endl;
-                }
             }
         }
-        else { cout << promptEnd("kunde"); // hvis ingen kunder blir slettet
+        else {
+            cout << promptEnd("kunde");                          //  hvis ingen kunder blir slettet
         }
     }
 }
-
-
-
