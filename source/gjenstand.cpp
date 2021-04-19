@@ -1,6 +1,6 @@
 /**
  *   @file      gjenstand.cpp
- *   @author    Daniel og Sang
+ *   @author    Daniel, Sang og Anna
  */
 
 #include <iostream>
@@ -10,6 +10,9 @@
                                     //  NB:  LesData3.h - nr.3 !!!
 using namespace std;
 
+/**
+* Skriver ut gjenstandsnummer
+*/
 void Gjenstand :: skrivData() {
     cout << "\tNummer:\t" << gjenstandNr << " ";
 }

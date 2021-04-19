@@ -1,6 +1,6 @@
 /**
  *   @file      tralle.cpp
- *   @author    Daniel og Sang
+ *   @author    Daniel, Sang og Anna
  */
 
 #include <iostream>
@@ -13,6 +13,9 @@
 using namespace std;
 
 
+/**
+* Leser om trallen har stropp
+*/
 void Tralle :: lesData()  {
     harStropp = lesInt("Har den stropp?", 0, 1);
 }

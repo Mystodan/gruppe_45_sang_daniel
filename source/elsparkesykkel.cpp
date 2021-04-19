@@ -1,10 +1,10 @@
 /**
  *   @file      elsparkesykkel.cpp
- *   @author    Daniel og Sang
+ *   @author    Daniel, Sang og Anna
  */
 
-#include <iostream>
-#include <string>
+#include <iostream>             //  cout, cin
+#include <string>               //  string
 #include "LesData3.h"           //  Verktøykasse for lesing av diverse data
                                 //  NB:  LesData3.h - nr.3 !!!
 #include "elsparkesykkel.h"
@@ -12,6 +12,9 @@
 
 using namespace std;
 
+/**
+*   Leser inn data (mengde watt) for elsparkesykkel
+*/
 void Elsparkesykkel :: lesData()  {
     int val = lesInt("Hvor mange watt har den?", 100, 200);
 

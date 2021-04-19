@@ -1,6 +1,6 @@
 /**
  *   @file     elsparkesykkel.h
- *   @author   Daniel og Sang
+ *   @author   Daniel, Sang og Anna
  */
 
 
@@ -9,6 +9,9 @@
 
 #include "gjenstand.h"
 
+/**
+*   Elsparkesykkel (subklasse av "Gjenstand", setter gjenstandens nr., type og/kanskje watt)
+*/
 class Elsparkesykkel : public Gjenstand {
     public:
         std::string Type = "Elsparkesykkel";

@@ -1,6 +1,6 @@
 /**
  *   @file      sted.cpp
- *   @author    Daniel og Sang
+ *   @author    Daniel, Sang og Anna
  */
 
 #include <iostream>
@@ -36,12 +36,24 @@ Sted :: Sted(ifstream & inn) {
     inn >> antallTraller >> antallSykler >> antallElsparkesykler;
 }
 
+
+/**
+ *  Skriver ut antall gjenstander av hver type
+ *
+ */
 void Sted :: returnerAntall()  {
     cout << "\tLedige traller:  " << traller.size() << "\n";
     cout << "\tLedige sykler:  " << sykler.size() << "\n";
     cout << "\tLedige elsparkesykler:  " << elsparkesykler.size() << "\n";
 }
 
+
+
+/**
+ *  Skriver ut ulånte traller
+ *
+ *  @see Gjenstand::skrivData()
+ */
 void Sted :: skrivLedigeTraller() {
     for(const auto & val : traller) {
         val->Gjenstand::skrivData();
@@ -49,6 +61,13 @@ void Sted :: skrivLedigeTraller() {
     }
 }
 
+
+
+/**
+ *  Skriver ut ulånte sykler
+ *
+*  @see Gjenstand::skrivData()
+ */
 void Sted :: skrivLedigeSykler() {
     for(const auto & val : sykler) {
         val->Gjenstand::skrivData();
@@ -56,6 +75,13 @@ void Sted :: skrivLedigeSykler() {
     }
 }
 
+
+
+/**
+ *  Skriver ut ulånte elsparkesykler
+ *
+ *  @see Gjenstand::skrivData()
+ */
 void Sted :: skrivLedigeElsparkesykler() {
     for(const auto & val : elsparkesykler) {
         val->Gjenstand::skrivData();

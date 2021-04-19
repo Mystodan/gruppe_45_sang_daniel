@@ -1,6 +1,6 @@
 /**
  *   @file      sykkel.cpp
- *   @author    Daniel og Sang
+ *   @author    Daniel, Sang og Anna
  */
 
 #include <iostream>
@@ -13,6 +13,9 @@
 using namespace std;
 
 
+/**
+* Leser inn om sykkelen har tilhenger
+*/
 void Sykkel :: lesData()  {
     harTilhenger = lesInt("Har den tilhenger?", 0, 1);
 }
