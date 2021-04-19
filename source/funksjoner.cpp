@@ -202,10 +202,13 @@ void slettGjenstand() {
                     promptEnd("gjenstand");
                 } break;
                 }
+                return;
             }
             else {
                 cout << "SETT INN GJENSTAND FORST\n";
+                return;
             }
+
         }
     }
     else {

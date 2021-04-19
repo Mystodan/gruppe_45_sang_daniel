@@ -1,8 +1,3 @@
-﻿  utleiesteder.cpp
-G:\GITLAB\gruppe45\source\utleiesteder.cpp(131,36): warning C4018: '>': signed/unsigned mismatch
-G:\GITLAB\gruppe45\source\utleiesteder.cpp(135,43): warning C4834: discarding return value of function with 'nodiscard' attribute
-G:\GITLAB\gruppe45\source\utleiesteder.cpp(157,35): warning C4018: '>': signed/unsigned mismatch
-G:\GITLAB\gruppe45\source\utleiesteder.cpp(161,43): warning C4834: discarding return value of function with 'nodiscard' attribute
-G:\GITLAB\gruppe45\source\utleiesteder.cpp(183,35): warning C4018: '>': signed/unsigned mismatch
-G:\GITLAB\gruppe45\source\utleiesteder.cpp(187,43): warning C4834: discarding return value of function with 'nodiscard' attribute
+﻿  funksjoner.cpp
+G:\GITLAB\gruppe45\source\funksjoner.cpp(28,23): warning C4018: '<': signed/unsigned mismatch
   source.vcxproj -> G:\GITLAB\gruppe45\Debug\source.exe

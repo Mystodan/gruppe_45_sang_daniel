@@ -115,7 +115,7 @@ void Utleiesteder :: flyttGjenstander() {
         char type = 'X';
         bool s1IngenMatch = false, s2IngenMatch = false, s1Bekreft = false, s2Bekreft = false;
         while(!((type == 'T') || (type == 'S')|| (type == 'E'))) {type = lesChar("Hvilken type gjenstand vil du flytte? (E, S, T)");}
-        antall = lesInt("Hvor mange gjenstander av denne typen vil du flytte?", 0, 100);
+        antall = lesInt("Hvor mange gjenstander av denne typen vil du flytte?", 1, 100);
         visAlleStedNavn();
         cout << "Hvor vil du flytte gjenstandene fra?:\t";
         getline(cin, sted1);
@@ -137,6 +137,8 @@ void Utleiesteder :: flyttGjenstander() {
                                         (val.second->elsparkesykler).pop_back();
                                         s2Bekreft = true;
                                     }
+                                    cout << "Har overfort elsparkesykkelen(e).\n";
+                                    return;
                                 }
                                 else
                                     s2IngenMatch = true;
@@ -162,6 +164,8 @@ void Utleiesteder :: flyttGjenstander() {
                                         (val.second->sykler).pop_back();
                                         s2Bekreft = true;
                                     }
+                                    cout << "Har overfort sykkelen(e).\n";
+                                    return;
                                 }
                                 else
                                     s2IngenMatch = true;
@@ -187,6 +191,8 @@ void Utleiesteder :: flyttGjenstander() {
                                         (val.second->traller).pop_back();
                                         s2Bekreft = true;
                                     }
+                                    cout << "Har overfort trallen(e).\n";
+                                    return;
                                 }
                                 else
                                     s2IngenMatch = true;
