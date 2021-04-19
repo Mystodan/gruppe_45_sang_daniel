@@ -1,3 +1,10 @@
-﻿  funksjoner.cpp
-G:\GITLAB\gruppe45\source\funksjoner.cpp(28,23): warning C4018: '<': signed/unsigned mismatch
+﻿  kunder.cpp
+G:\GITLAB\gruppe45\source\kunder.cpp(276,67): warning C4018: '<': signed/unsigned mismatch
+G:\GITLAB\gruppe45\source\kunder.cpp(309,66): warning C4018: '<': signed/unsigned mismatch
+G:\GITLAB\gruppe45\source\kunder.cpp(342,74): warning C4018: '<': signed/unsigned mismatch
+  utleiesteder.cpp
+G:\GITLAB\gruppe45\source\utleiesteder.cpp(179,32): warning C4018: '>': signed/unsigned mismatch
+G:\GITLAB\gruppe45\source\utleiesteder.cpp(205,32): warning C4018: '>': signed/unsigned mismatch
+G:\GITLAB\gruppe45\source\utleiesteder.cpp(231,32): warning C4018: '>': signed/unsigned mismatch
+  Generating Code...
   source.vcxproj -> G:\GITLAB\gruppe45\Debug\source.exe

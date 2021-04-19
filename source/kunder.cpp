@@ -258,7 +258,7 @@ void Kundebase :: hentGjenstand() {
 
         kundeNr = lesInt("Hvilken kunde skal laane en gjenstand?", 1, sisteKundeNr);    // Leser inn kundenummer
         while(!((type == 'T') || (type == 'S')|| (type == 'E'))) {type = lesChar("Hvilken type gjenstand vil du flytte? (E, S, T)");} // leser inn antall og sted
-        antall = lesInt("Hvor mange av denne gjenstanden vil kunden laane?", 0, 100);
+        antall = lesInt("Hvor mange av denne gjenstanden vil kunden laane?", 1, 100);
         cout << "Hvilket sted vil kunden laane fra?\t";
         gUtleiesteder->visAlleStedNavn();
         cout << "Stednavn:\t";
@@ -268,6 +268,7 @@ void Kundebase :: hentGjenstand() {
             case 'T': {
                 for (const auto & val : gKunder->kunder) { // Sjekker om kundene eksisterer
                     if (kundeNr == val->kundeNr) {
+                        kBekreft = true;
                         for (const auto & val2 : gUtleiesteder->steder) { // Sjekker om stedet eksisterer
                             if (toupperS(val2.second->navn) == toupperS(sted)) {
                                 sBekreft = true;           // Stedet eksisterer
@@ -281,7 +282,7 @@ void Kundebase :: hentGjenstand() {
                                         ((val3).back())->lesData();
                                         val->kundeGjenstander.push_back((val3).back());
                                         (val2.second->traller).pop_back();
-                                        sBekreft = true;
+                                        cout << val->navn << " har na laant " << antall << ": tralle(r)"<<endl;
                                     }
                                 }
                             }
@@ -300,9 +301,10 @@ void Kundebase :: hentGjenstand() {
             case 'S': {
                 for (const auto& val : gKunder->kunder) {   // Sjekker om kundene eksisterer
                     if (kundeNr == val->kundeNr) {
+                        kBekreft = true;                        // Stedet eksisterer
                         for (const auto & val2 : gUtleiesteder->steder) {   // Sjekker om stedet eksisterer
                             if (toupperS(val2.second->navn) == toupperS(sted)) {
-                                kBekreft = true;            // Stedet eksisterer
+                                sBekreft = true;
                                 sted = val2.second->navn;
                                 if ((val2.second->sykler).size() < antall) { cout << "Det er ikke nok sykler paa dette stedet!\n"; }
                                             // Sjekker om det er nok sykler til stedet
@@ -313,7 +315,7 @@ void Kundebase :: hentGjenstand() {
                                         ((val3).back())->lesData();
                                         val->kundeGjenstander.push_back((val3).back());
                                         (val2.second->sykler).pop_back();
-                                        sBekreft = true;
+                                        cout << val->navn << " har na laant " << antall << ": sykkel(er)" << endl;
                                     }
                                 }
                             }
@@ -332,6 +334,7 @@ void Kundebase :: hentGjenstand() {
             case 'E': {
                 for (const auto& val : gKunder->kunder) {   // Sjekker om kundene eksisterer
                     if (kundeNr == val->kundeNr) {
+                        kBekreft = true;
                         for (const auto & val2 : gUtleiesteder->steder) {   // Sjekker om stedet eksisterer
                             if (toupperS(val2.second->navn) == toupperS(sted)) {
                                 sBekreft = true;            // Stedet eksisterer
@@ -350,6 +353,7 @@ void Kundebase :: hentGjenstand() {
 
                                         val->kundeGjenstander.push_back((val2.second->elsparkesykler).back());
                                         (val2.second->elsparkesykler).pop_back();
+                                        cout << val->navn << " har na laant " << antall << ": elsparkesykkel(er)" << endl;
                                     }
                                 }
                             }
